@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test loading component 1`] = `
+<div
+  className="body-mask___bg"
+  id="loading"
+>
+  <div
+    className="loading__facehd"
+  >
+    <div
+      className="loading__facehd__wrap"
+    />
+    <div
+      className="loading__facehd__shadow"
+    />
+  </div>
+</div>
+`;

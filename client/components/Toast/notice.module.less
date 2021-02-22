@@ -1,0 +1,77 @@
+.window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateZ(1px);
+  z-index: 10000;
+
+  &.mask {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.nomask {
+    width: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+.content {
+  background: rgba(0, 0, 0, .48);
+  color: #fff;
+  text-align: center;
+  min-width: 114px;
+  max-width: 80%;
+  box-sizing: border-box;
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'PingFangSC-Regular';
+  padding: 15px 26px;
+  border-radius: 17px;
+  transition: 300ms;
+
+  .indiaim-loading {
+    animation: rotate 2s linear infinite
+  }
+
+  .indiaim-loading:before {
+    content: "\e651";
+  }
+
+  &.light {
+    background-color: #fff;
+    border-radius: 0.33rem;
+    font-size: 0.78rem;
+    color: rgba(33, 33, 33, 1);
+    line-height: 1rem;
+    padding: 0.64rem 2.58rem;
+  }
+}
+
+.fade {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.icon {
+  font-size: 40px;
+  line-height: 40px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}

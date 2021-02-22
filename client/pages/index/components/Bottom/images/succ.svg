@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="249px" height="222px" viewBox="0 0 249 222" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Successful</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="80" cy="80" r="80"></circle>
+        <filter x="-31.2%" y="-28.8%" width="162.5%" height="162.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="16" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.831372549   0 0 0 0 0.443137255  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="安卓" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-324.000000, -1683.000000)">
+            <g id="编组-5" transform="translate(319.000000, 1683.000000)">
+                <g id="编组-2" transform="translate(0.000000, 10.000000)">
+                    <g id="编组-3" transform="translate(45.000000, 17.000000)">
+                        <g id="椭圆形">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#00D471" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <polyline id="路径-6" stroke="#FCFCFC" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" points="46.8807425 86.1200576 72.9279508 110 113.880742 60"></polyline>
+                    </g>
+                    <g id="编组-4" fill="#00D471">
+                        <polygon id="星形" transform="translate(207.500000, 22.500000) rotate(-315.000000) translate(-207.500000, -22.500000) " points="207.5 27.925 196.539845 33.4601551 202.075 22.5 196.539845 11.5398449 207.5 17.075 218.460155 11.5398449 212.925 22.5 218.460155 33.4601551"></polygon>
+                        <polygon id="星形备份" transform="translate(246.000000, 64.000000) rotate(-315.000000) translate(-246.000000, -64.000000) " points="246 66.8 240.343146 69.6568542 243.2 64 240.343146 58.3431458 246 61.2 251.656854 58.3431458 248.8 64 251.656854 69.6568542"></polygon>
+                        <polygon id="星形备份-2" transform="translate(17.000000, 146.000000) rotate(-315.000000) translate(-17.000000, -146.000000) " points="17 150.2 8.51471863 154.485281 12.8 146 8.51471863 137.514719 17 141.8 25.4852814 137.514719 21.2 146 25.4852814 154.485281"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

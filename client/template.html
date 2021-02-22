@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta http-equiv="Content-type" content="text/html; charSet=utf-8" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta property="og:image" content="" />
+  <meta property="og:title" content="og:title" />
+  <meta property="og:description" content="og:description" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="description" />
+  <meta name="keyword" content="keywords" />
+  <% if(htmlWebpackPlugin.options.DOMAIN_API.env!=='prod') { %>
+    <script src="http://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+    <script>
+      const vConsole = new window.VConsole();
+    </script>
+  <% } %>
+</head>
+
+<body>
+  <div id="container">
+  </div>
+  <script>
+    window.DOMAIN_API = <%= JSON.stringify(htmlWebpackPlugin.options.DOMAIN_API) %>;
+  </script>
+</body>
+</html>

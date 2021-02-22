@@ -1,0 +1,40 @@
+@path:'client/pages/wallet/images';
+.result_box{
+  width:100%;
+  background:#fff;
+  ._icon{
+    width:6.92rem;
+    height:6.17rem;
+    margin:0 auto;
+    &.suc{
+      background:url('@{path}/succ.svg');
+      background-size:cover;
+    }
+    &.fail{
+      background:url('@{path}/unsucc.svg');
+      background-size:cover;
+    }
+    &.pending{
+      background:url('@{path}/pending.svg');
+      background-size:cover;
+    }
+  }
+  .des{
+    font-size:1.11rem;
+    font-family:Roboto-Medium,Roboto;
+    font-weight:500;
+    color:rgba(33,33,33,1);
+    line-height:1.31rem;
+    text-align: center;
+  }
+  .des_subtitle{
+    font-size:0.89rem;
+    font-family:Roboto-Regular,Roboto;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    line-height:1.06rem;
+    text-align: center;
+    margin-top: 0.7rem;
+  }
+ 
+}

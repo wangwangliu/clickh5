@@ -1,0 +1,81 @@
+@rem: 30rem;
+@REM: 30rem;
+
+.__loading_{
+    position: absolute;
+    background:none;
+    width:96/@rem;
+    height:20/@rem;
+    z-index:1000;
+    top:50%;
+    left:50%;
+    margin-left:-48/@rem;
+    margin-top:-8/@rem;
+    .__yellow_{
+        position: absolute;
+        top:0;
+        left:0;
+        width:18/@rem;
+        height:18/@rem;
+        border-radius: 18/@rem;
+        background:#FFE200;
+        animation:animations_y 2s linear infinite;
+    }
+    .__purple_{
+        position: absolute;
+        top:0;
+        left:1.4rem;
+        width:18/@rem;
+        height:18/@rem;
+        border-radius: 18/@rem;
+        background:#6656F5;
+        animation:animations_p 2s linear infinite;
+    }
+    .__red_{
+        position: absolute;
+        top:0;
+        left:2.8rem;
+        width:18/@rem;
+        height:18/@rem;
+        border-radius: 18/@rem;
+        background:#FF2D53;
+        animation:animations_r 2s linear infinite;
+    }
+}
+
+
+@-webkit-keyframes animations_y{
+    0%{-webkit-transform:translate(0,0);}
+    12.5%{-webkit-transform:translate(1.4rem,0);}
+    25%{-webkit-transform:translate(1.4rem,0);}//等
+    37.5%{-webkit-transform:translate(1.4rem,0);}//等
+    50%{-webkit-transform:translate(2.8rem,0);}
+    62.5%{-webkit-transform:translate(1.4rem,0);}
+    75%{-webkit-transform:translate(2.8rem,0);}
+    87.5%{-webkit-transform:translate(1.4rem,0);}
+    100%{-webkit-transform:translate(0,0);}
+}
+
+@-webkit-keyframes animations_p{
+	0%{-webkit-transform:translate(0,0);}
+    12.5%{-webkit-transform:translate(0,0);} //等
+    25%{-webkit-transform:translate(1.4rem,0);}
+    37.5%{-webkit-transform:translate(0,0);}
+    50%{-webkit-transform:translate(-1.4rem,0);}
+    62.5%{-webkit-transform:translate(0,0);}
+    75%{-webkit-transform:translate(1.4,0);}
+    87.5%{-webkit-transform:translate(0,0);}
+    100%{-webkit-transform:translate(0,0);}
+}
+
+@-webkit-keyframes animations_r{
+	0%{-webkit-transform:translate(0,0);}
+    12.5%{-webkit-transform:translate(-1.4rem,0);}
+    25%{-webkit-transform:translate(-2.8rem,0);}
+    37.5%{-webkit-transform:translate(-1.4rem,0);}
+    50%{-webkit-transform:translate(-1.4rem,0);}//等
+    62.5%{-webkit-transform:translate(-1.4rem,0);}
+    75%{-webkit-transform:translate(-2.8rem,0);}
+    87.5%{-webkit-transform:translate(-1.4rem,0);}
+    100%{-webkit-transform:translate(0,0);}
+}

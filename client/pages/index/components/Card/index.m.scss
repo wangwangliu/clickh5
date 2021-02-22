@@ -1,0 +1,53 @@
+@import '../../mixin.scss';
+.card{
+  width: 100%;
+  height: px2rem(121);
+  padding: px2rem(8);
+  border-radius: px2rem(8);
+  box-shadow: 0 px2rem(3) px2rem(6) 0 rgba(195, 203, 212, 0.35);
+  border: solid px2rem(1) $border;
+  background: $mainBg;
+  box-sizing: border-box;
+  display: flex;
+  .img_b{
+    width: px2rem(74);
+    height: px2rem(105.1);
+    margin: 0 px2rem(19) 0 0;
+    object-fit: contain;
+    border-radius: px2rem(10);
+    box-shadow: 0 px2rem(5) px2rem(10) 0 rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background:#ccc;
+    flex-shrink: 0;
+    img{
+      width: px2rem(74);
+      height: px2rem(105.1);
+    }
+  }
+  .right_c{
+    flex-grow: 1;
+    .title{
+      font-family: Poppins;
+      font-size: px2rem(13);
+      line-height: 1.62;
+      color:$deepColor;
+    }
+    .sub_t{
+      font-size: 8px;
+      line-height: 1.5;
+      color: $redColor;
+    }
+    .conent{
+      font-family: Poppins;
+      font-size: px2rem(10);
+      line-height: 1.4;
+      color:$deepColor;
+      margin-top:px2rem(5);
+    }
+    ._btn{
+      @extend .red_btn;
+      margin-top:rem(6);
+      box-sizing: border-box;
+    }
+  }
+}

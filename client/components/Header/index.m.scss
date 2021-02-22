@@ -1,0 +1,15 @@
+@import '../../pages/index/mixin.scss';
+.top_h{
+  width:100vw;
+  height:px2rem(51.2);
+  background:url(#{$path}/dis_header_bg_.png) center center no-repeat;
+  background-size: cover;
+  position: fixed;
+  left:0;
+  top:0;
+  z-index:10;
+}
+.placeholder{
+  height:rem(36);
+  width:100vw;
+}

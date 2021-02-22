@@ -1,0 +1,35 @@
+@import '../../mixin.scss';
+.menu{
+  background: $mainBg;
+  padding: px2rem(10) px2rem(20);
+  white-space: nowrap;
+  overflow-y:auto;
+  width:100vw;
+  box-sizing: border-box;
+}
+
+.menu:-webkit-scrollbar{
+  display: none;
+}
+.menu_bar{
+  padding:0 px2rem(12);
+  margin-right: px2rem(6);
+  height: px2rem(28);
+  box-sizing: border-box;
+  background: $mainBg;
+  display: inline-block;
+  border-radius: px2rem(90);
+  border: solid  px2rem(1) $border;
+  color: $deepColor;
+  font-size: px2rem(7);
+  text-align: center;
+  line-height: px2rem(28);
+  &.act{
+    background: $deepColor;
+    border: solid  px2rem(1) $deepColor;
+    color: $mainBg;
+  }
+  &:last-child{
+    margin-right: px2rem(0);
+  }
+}

@@ -1,0 +1,108 @@
+@import '../../mixin.scss';
+.discover_wrap{
+  position: relative;
+  overflow: auto;
+  height:100vh;
+  width:100vw;
+  box-sizing: border-box;
+  padding-bottom:px2rem(55);
+  // padding-top:px2rem(36);
+  
+  .banner{
+    width:100vw;
+    height:px2rem(131);
+    background:#ccc;
+  }
+  .c_box{
+    width:100vw;
+    box-sizing: border-box;
+    padding:0 rem(10);
+    .child_{
+      margin-top:rem(13);
+      &:first-child{
+        margin-top:0;
+      }
+    }
+  }
+  .more_w{
+    width:100vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .more{
+      @extend .deep_btn;
+      margin: rem(10) auto;
+    }
+  }
+  .bar_header{
+    height: rem(59.3);
+    // background:url(#{$path}/dis_header_bg_.png) center center no-repeat;
+    // background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:$mainBg;
+    font-size:rem(18)
+  }
+
+  .red_header{
+    @extend .bar_header;
+     background:url(#{$path}/dis_sub_bg.png) center center no-repeat;
+    background-size: cover;
+  }
+  .black_header{
+    @extend .bar_header;
+     background:url(#{$path}/dis_header_bg.png) center center no-repeat;
+    background-size: cover;
+  }
+
+  .swp_card_w{
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    width: 100vw;
+    height:rem(168);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding:0 rem(10);
+    .swp_card{
+      width: rem(83);
+      height: rem(145);
+      padding: rem(5);
+      border-radius: rem(8);
+      box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+      border: solid rem(1) $border;
+      background-color: $mainBg;
+      box-sizing: border-box;
+      .img_b{
+        width: rem(72);
+        height: rem(100);
+        margin: 0 0 rem(6);
+        object-fit: contain;
+        border-radius: rem(10);
+        box-shadow: 0 rem(5) rem(10) 0 rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        background:#ccc;
+        img{
+          width: rem(72);
+        }
+      }
+      .tit{
+        font-size:rem(7);
+        color: $deepColor;
+        margin-top:rem(7)
+      }
+      .author{
+        font-size:rem(7);
+        color: $deepColor;
+      }
+      .cate{
+        font-size:rem(7);
+        color: $redColor;
+      }
+    }
+  }
+}

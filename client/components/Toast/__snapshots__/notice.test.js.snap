@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toast component animation 1`] = `
+<div
+  className="window mask"
+>
+  <div
+    className="content fade-in"
+  />
+</div>
+`;
+
+exports[`toast component animation 2`] = `
+<div
+  className="window mask"
+>
+  <div
+    className="content fade"
+  />
+</div>
+`;
+
+exports[`toast component with content 1`] = `
+<div
+  className="window mask"
+>
+  <div
+    className="content fade"
+  >
+    test content
+  </div>
+</div>
+`;
+
+exports[`toast component with nomask 1`] = `
+<div
+  className="window nomask"
+>
+  <div
+    className="content fade"
+  />
+</div>
+`;

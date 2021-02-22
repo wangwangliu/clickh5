@@ -1,0 +1,41 @@
+$ratio: 15;
+$path: 'client/pages/index/images';
+$mainBg: #ffffff;
+$deepColor: #062034;
+$redColor:#f47983;
+$border: #d9dee2;
+
+@function px2rem($px) {
+    @return $px / $ratio + rem;
+}
+
+@function rem($px) {
+    @return $px / $ratio + rem;
+}
+
+.red_btn{
+  display: inline-block;
+  height: px2rem(20);
+  padding: 0 px2rem(8);
+  border-radius: px2rem(90);
+  box-shadow: 0 px2rem(3) px2rem(6) 0 rgba($color: $redColor, $alpha: 0.35);
+  background-color: $redColor;
+  font-size: px2rem(7);
+  font-weight: 600;
+  text-align: center;
+  line-height:px2rem(20);
+  color:$mainBg;
+}
+.deep_btn{
+    height: rem(22);
+    padding: 0 px2rem(15);
+    border-radius: rem(90);
+    box-shadow: 0 rem(3) rem(6) 0 rgba(6, 32, 52, 0.2);
+    background-color: $deepColor;
+    display: inline-block;
+    font-size: px2rem(7);
+    text-align: center;
+    line-height:px2rem(20);
+    color:$mainBg;
+}
+

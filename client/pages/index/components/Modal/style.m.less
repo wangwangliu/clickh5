@@ -1,0 +1,67 @@
+@path:'client/pages/wallet/components/Modal/images';
+
+.modal {
+  // padding: 1.67rem 1.67rem 1.11rem;
+
+  :global {
+    width: 16.67rem;
+
+    .am-modal-content {
+      padding-top: 0;
+    }
+
+    .am-modal-body {
+      padding: 1.67rem 0 1.11rem !important;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  
+}
+
+.title {
+  font-size: 1.11rem;
+  font-weight: 700;
+  color: #37403e;
+  line-height: 1.33rem;
+}
+.close__i{
+  width:1.11rem;
+  height:1.11rem;
+  position: absolute;
+  z-index:100;
+  right:0.78rem;
+  top:0.78rem;
+  background:url('@{path}/close_i.png');
+  background-size:cover;
+}
+.content {
+  width: 13.33rem;
+  font-size: 0.89rem;
+  color: #999999;
+  line-height: 1.33rem;
+  margin: 1.31rem auto 1.36rem;
+}
+
+
+.confirm {
+  width: 13.33rem;
+  height: 2.22rem;
+  line-height: 2.22rem;
+  text-align: center;
+  background: linear-gradient(270deg, #546DFF 0%, #82B8FF 100%);
+  border-radius: 1.11rem;
+  font-size: 0.89rem;
+  color: #fff;
+  margin: 0 auto;
+  &.opacity{
+    background:rgba(204,204,204,1);
+    color:#fff;
+  }
+
+  
+
+  
+}

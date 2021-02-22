@@ -1,0 +1,101 @@
+@path:'client/components/SurprisedModal/images';
+.surprised_fixed{
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:2000;
+  background:rgba(33,33,33,1);
+  opacity:0.5;
+}
+.surprised_model{
+  width:100%;
+  height:15.22rem;
+  position: fixed;
+  top:50%;
+  margin-top:-7.61rem;
+  left:0;
+  box-sizing: border-box;
+  padding:0 1.67rem;
+  z-index:2001;
+  .top_gift{
+    width:13rem;
+    height:5.56rem;
+    position: absolute;
+    z-index:2002;
+    background:url('@{path}/gift.png');
+    background-size:cover;
+    left:50%;
+    margin-left:-6.8rem;
+    top:-2.78rem;
+  }
+  .surprised_box{
+    width:100%;
+    height:15.22rem;
+    border-radius:0.33rem;
+    box-sizing: border-box;
+    background:#fff;
+    padding:4rem 0.8rem 0;
+    .tit_{
+      font-size:1.11rem;
+      font-family:Roboto-Medium,Roboto;
+      font-weight:500;
+      color:rgba(33,33,33,1);
+      text-align: center;
+    }
+    .sub_tit_{
+      font-size:0.89rem;
+      font-family:Roboto-Regular,Roboto;
+      font-weight:400;
+      color:rgba(153,153,153,1);
+      text-align: center;
+      margin-top:0.89rem;
+      white-space: nowrap;
+    }
+    .btn_{
+      width:13.33rem;
+      height:2.5rem;
+      line-height:2.5rem;
+      background:rgba(253,65,9,1);
+      border-radius:1.25rem;
+      margin:0 auto;
+      margin-top:1.89rem;
+      font-size:0.89rem;
+      font-family:Roboto-Medium,Roboto;
+      font-weight:500;
+      color:rgba(255,255,255,1);
+      text-align: center;
+      .diamond{
+        display: inline-block;
+        width:1.39rem;
+        height:1.39rem;
+        margin-right:0.31rem;
+        background:url('@{path}/diamond.png');
+        background-size:cover;
+        position: relative;
+        top:0.3rem
+      }
+      &.opt{
+        opacity: 0.5;
+      }
+    }
+    .no_wrap{
+      width:100%;
+      height:1.06rem;
+      display: flex;
+      margin-top:1.11rem;
+      align-items: center;
+      justify-content: center;
+      .no_{
+        font-size:0.89rem;
+        font-family:Roboto-Regular,Roboto;
+        font-weight:400;
+        color:rgba(33,33,33,1);
+        display: inline-block;
+        height: 1.1rem;
+        border-bottom:1px solid #212121;
+      }
+    }
+  }
+}

@@ -1,0 +1,310 @@
+@default:#6435EF;
+@disable_default:#AFA6F9;
+@warn:#ff2d53;
+@yellow:#ffe200;
+@purple:#c053ff;
+@green:#00d471ff;
+@blacklevel1:#333333;
+@blacklevel2:#666666;
+@blacklevel3:#999999;
+@blacklevel4:#cccccc;
+@blacklevel5:#e0e0e0;
+@blacklevel6:#f5f5f5;
+@backgroundColor:#f0f2f5;
+
+@rem: 30rem;
+@REM: 30rem;
+
+.px2rem(@name,@px){
+    @{name}: @px/@rem 
+}
+
+:root,
+.root {
+  font-size: 4vw;
+  
+}
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color: transparent; /* For some Androids */ 
+   }
+body{
+  font-family: Roboto,PingFang SC,Helvetica Neue,Hiragino Sans GB,Helvetica,Microsoft YaHei,Arial;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+}
+input[type=text]:focus,input[type=password]:focus,textarea:focus{
+    // transition:border linear .2s,box-shadow linear .5s;
+    // -moz-transition:border linear .2s,-moz-box-shadow linear .5s;
+    // -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+    // outline:none;border-color:rgba(253,215,5,.75); //输入框边框颜色
+    // box-shadow:0 0 10px rgba(253,215,5,.105); //向外漫射程度1
+    // -moz-box-shadow:0 0 10px rgba(253,215,5,.5);//向外漫射程度2
+    // -webkit-box-shadow:0 0 10px rgba(253,215,5,3);//向外漫射程度3
+    }
+
+.border(@borderColor:#999,@border:border){
+  @{border}: 1px solid @borderColor
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border(@borderColor:#999,@border:border){
+      @{border}: 0.5px solid @borderColor
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border(@borderColor:#999,@border:border){
+      @{border}:  0.333333px solid @borderColor
+    }
+}
+
+//常用变量及样式定义，作为一个工具Less被其他Less
+//字体大小:默认14px
+//去除a和label的虚线
+.remove_dotted(){
+  a,label {blr:~'expression(this.onFocus=this.blur())'}
+  a,label {outline:none;}
+}
+.font(@size:14px){
+    font-size:@size;
+}
+.h100(){
+    height:100%;
+}
+.w100(){
+    width:100%;
+}
+// //边框设置
+// .border(@w:1px,@c:#eee){
+//     border:@w solid @c;
+// }
+//定位
+.pos(r){
+    position:relative;
+}
+.pos(a){
+    position:absolute;
+}
+.pos(f){
+    position:fixed;
+}
+//背景图片,.bg("..images/1.png");
+.bg(@url){
+    background:url(@url) no-repeat;
+}
+//浮动,div{.fr;}
+.fl(){
+    float:left;
+}
+.fr(){
+    float:right;
+}
+
+.list-sn(){
+    list-style:none;
+}
+//垂直居中
+.pos-box-cc(@w,@h,@pos:absolute){
+    width:@w;
+    height:@h;
+    left:50%;
+    top:50%;
+    margin:-@w/2 0 0 -@h/2;
+}
+.bc(){
+    margin:0 auto;
+}
+//文字居中
+.tc(){
+    text-align:center;
+}
+//文字垂直居中
+.tcc(@h){
+    text-align:center;
+    line-height:@h;
+}
+.l-h(@h){
+    height:@h;
+    line-height:@h;
+}
+//display
+.d-b(){
+    display:block;
+}
+.d-i(){
+    display:inline;
+}
+.d-ib(){
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+}
+.d-t(){
+    display:table;
+}
+.d-n(){
+    display:none;
+}
+.t-n(@p:none){
+    text-decoration:@p;
+}
+.tc(){
+    text-align:center;
+}
+.tl(){
+    text-align:left;
+}
+.tr(){
+    text-align:right;
+}
+//圆角
+.radius(@r){
+    -webkit-border-radius:@r;
+       -moz-border-radius:@r;
+            border-radius:@r;
+}
+
+//三角形
+.triangle(top,@w:5px,@c:#eee){
+    border-width:@w;
+    border-color:transparent transparent @c transparent;
+    border-style:dashed dashed solid dashed;
+}
+
+.triangle(bottom,@w:5px,@c:#eee){
+    border-width:@w;
+    border-color:@c transparent transparent transparent;
+    border-style:solid dashed dashed dashed;
+
+}
+.triangle(left,@w:5px,@c:#eee){
+    border-width:@w;
+    border-color:transparent @c transparent transparent;
+    border-style:dashed dashed solid dashed;
+}
+
+.triangle(right,@w:5px,@c:#eee){
+    border-width:@w;
+    border-color:transparent transparent transparent @c;
+    border-style:solid dashed dashed dashed;
+
+}
+.triangle(@_){
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+.clearfix(){
+  *zoom: 1;
+  &:before,
+  &:after{
+    display:table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.box-sizing(@box){
+  -webkit-box-sizing:@box;
+     -moz-box-sizing:@box;
+      -ms-box-sizing:@box;
+       -o-box-sizing:@box;
+              sizing:@box;
+}
+.box-shadow(@shadow){
+  -webkit-box-shadow:@shadow;
+     -moz-box-shadow:@shadow;
+      -ms-box-shadow:@shadow;
+       -o-box-shadow:@shadow;
+              shadow:@shadow;
+}
+
+//过度
+.transition(@trans){
+    -webkit-transition:@trans;
+       -moz-transition:@trans;
+        -ms-transition:@trans;
+         -o-transition:@trans;
+            transition:@trans;
+}
+.transform-origin(@origin){
+    -webkit-transition-origin:@origin;
+       -moz-transition-origin:@origin;
+        -ms-transition-origin:@origin;
+         -o-transition-origin:@origin;
+            transition-origin:@origin;
+}
+.transform(@transform){
+    -webkit-transform:@transform;
+       -moz-transform:@transform;
+        -ms-transform:@transform;
+         -o-transform:@transform;
+            transform:@transform;
+}
+.create3d(@h){
+  -webkit-perspective:@h;
+          perspective:@h;
+}
+.use3d(){
+    -webkit-transform-style:preserve-3d;
+            transform-style:preserve-3d;
+}
+
+//动画
+.animation(@as){
+    -webkit-animation:@as;
+       -moz-animation:@as;
+         -o-animation:@as;
+            animation:@as;
+}
+.trans3d(){
+    -webkit-transform-style:preserve-3d;
+       -moz-transform-style:preserve-3d;
+            transform-style:preserve-3d;
+}
+.trans-origin(@to){
+  -webkit-transform-origin:@to;
+     -moz-transform-origin:@to;
+          transform-origin:@to;
+}
+  *{
+    padding:0;
+    margin:0;
+    outline: none;
+  }                
+  button,input,textarea{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: none;
+  }
+  ul li{
+    list-style: none;
+  }
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: @blacklevel3;
+    font-size: 32/@rem;
+    line-height:normal;
+  }
+  
+  input:-moz-placeholder, textarea:-moz-placeholder {
+    color: @blacklevel3;
+    font-size: 32/@rem;
+    line-height:normal;
+  }
+  [readonly="readonly"] {
+    pointer-events: none;
+  }
+  .dot(){
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+input[type=button]{
+	-webkit-appearance:none;
+	outline:none
+}
+input[type="search"]::-webkit-search-cancel-button{
+    display: none;
+}

@@ -1,0 +1,127 @@
+@import './mixin.scss';
+
+html {
+  font-size: 4vw;
+  font-family: Roboto-Regular, Roboto, Arial;
+}
+
+html,
+body {
+  background-color: $mainBg;
+  width:100vw;
+  height:100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.main_wrap{
+  width:100vw;
+  height:100vh;
+  position: relative;
+  overflow: hidden;
+  .bar_w{
+    position:fixed;
+    left:0;
+    width:100%;
+    bottom:px2rem(10);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: px2rem(40);
+    z-index:50;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding:0 rem(10);
+  .bar{
+   width:100%;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   height: px2rem(40);
+   box-sizing: border-box;
+   border-radius:px2rem(8);
+   background-color:rgba($color: $deepColor, $alpha: 0.05);
+   z-index:50;
+   overflow: hidden;
+   .bottom_div{
+     flex:1;
+     color: $deepColor;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: px2rem(40);
+     font-size: 11px;
+     .content{
+      //  flex-grow: 1;
+      flex-shrink: 0;
+      text-align: center;
+      width:100%;
+      margin-top:px2rem(2)
+     }
+     .icon{
+       width:px2rem(15);
+       height:px2rem(15);
+       flex-shrink: 0;
+       &.book{
+        background:url(#{$path}/bar/book.png) center center no-repeat;
+        background-size: contain;
+       }
+       &.discover{
+        background:url(#{$path}/bar/discover.png) center center no-repeat;
+        background-size: contain;
+       }
+       &.user{
+        background:url(#{$path}/bar/user.png) center center no-repeat;
+        background-size: contain;
+       }
+     }
+    //  background:url(#{$sina}a.jpg) left top no-repeat;
+     &:active{
+       background:$redColor;
+       color:#fff;
+       .icon{
+        width:px2rem(15);
+        height:px2rem(15);
+        &.book{
+         background:url(#{$path}/bar/book.png) center center no-repeat;
+         background-size: contain;
+        }
+        &.discover{
+         background:url(#{$path}/bar/discover_ed.png) center center no-repeat;
+         background-size: contain;
+        }
+        &.user{
+         background:url(#{$path}/bar/user_ed.png) center center no-repeat;
+         background-size: contain;
+        }
+      }
+     }
+     &.acted{
+      background:$redColor;
+      color:#fff;
+      .icon{
+        width:px2rem(15);
+        height:px2rem(15);
+        &.book{
+         background:url(#{$path}/bar/book.png) center center no-repeat;
+         background-size: contain;
+        }
+        &.discover{
+         background:url(#{$path}/bar/discover_ed.png) center center no-repeat;
+         background-size: contain;
+        }
+        &.user{
+         background:url(#{$path}/bar/user_ed.png) center center no-repeat;
+         background-size: contain;
+        }
+      }
+     }
+   }
+  }
+}
+}
