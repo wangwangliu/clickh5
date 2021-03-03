@@ -151,15 +151,3 @@ export function dot(str, len) {
       build += "...";
   return build;
 }
-
-
-
-// function getPhysicsSize({ x, y, width, height }){
-//  const xp = (window.screen.availWidth*x/window.innerWidth)* window.devicePixelRatio;
-//  const widthp = (window.screen.availWidth*width/window.innerWidth)* window.devicePixelRatio;
-//  const heightp = (window.screen.availHeight*height/window.innerHeight)* window.devicePixelRatio;
-//  const yp = (window.screen.availHeight*y/window.innerHeight)* window.devicePixelRatio;
-
-//  return {x:xp,}
-// }
-

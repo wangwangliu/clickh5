@@ -3,7 +3,9 @@ $path: 'client/pages/index/images';
 $mainBg: #ffffff;
 $deepColor: #062034;
 $redColor:#f47983;
+$lightColor:#fee8ea;
 $border: #d9dee2;
+$active:#f5f5f5;
 
 @function px2rem($px) {
     @return $px / $ratio + rem;
@@ -11,6 +13,10 @@ $border: #d9dee2;
 
 @function rem($px) {
     @return $px / $ratio + rem;
+}
+input{
+    border:0;
+    outline:0;
 }
 
 .red_btn{
@@ -25,9 +31,11 @@ $border: #d9dee2;
   text-align: center;
   line-height:px2rem(20);
   color:$mainBg;
+  box-sizing: border-box;
 }
 .deep_btn{
     height: rem(22);
+    line-height: rem(22);
     padding: 0 px2rem(15);
     border-radius: rem(90);
     box-shadow: 0 rem(3) rem(6) 0 rgba(6, 32, 52, 0.2);
@@ -35,7 +43,7 @@ $border: #d9dee2;
     display: inline-block;
     font-size: px2rem(7);
     text-align: center;
-    line-height:px2rem(20);
     color:$mainBg;
+    box-sizing: border-box;
 }
 

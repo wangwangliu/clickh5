@@ -3,12 +3,19 @@ export default {
 	state: {
 		bottomBar: {
 			show: true,
-			curr: 'discover'
-		}
+			curr: 'discover',
+		
+		},
+		showLoginModal:false,
+		userInfo:{},
+		isLogin:false
 	},
 	reducers: {
 		updateBar(state, { payload }) {
-			return { state, bottomBar: { ...state.bottomBar, ...payload } }
+			return { ...state, bottomBar: { ...state.bottomBar, ...payload } }
+		},
+		update(state, { payload }) {
+			return { ...state,...payload}
 		}
 	},
 	effects: {

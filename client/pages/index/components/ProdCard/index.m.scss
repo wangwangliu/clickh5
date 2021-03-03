@@ -1,0 +1,55 @@
+@import '../../mixin.scss';
+  .swp_card{
+    width: rem(107);
+    height: rem(185);
+    padding: rem(5);
+    border-radius: rem(8);
+    box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+    border: solid rem(1) $border;
+    background-color: $mainBg;
+    box-sizing: border-box;
+    position: relative;
+    .recommend_tag{
+      width:rem(70);
+      height:rem(20);
+      background:$deepColor;
+      box-sizing: border-box;
+      border-top-left-radius: rem(8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color:$mainBg;
+      font-size:rem(7);
+      position: absolute;
+      left:0;
+      top:0;
+      white-space: nowrap;
+    }
+    .img_b{
+      width: rem(93.5);
+      height: rem(126);
+      margin: 0 0 rem(6);
+      object-fit: contain;
+      border-radius: rem(10);
+      box-shadow: 0 rem(5) rem(10) 0 rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      background:#ccc;
+      img{
+        width: rem(93.5);
+      }
+    }
+    .tit{
+      font-size:rem(8);
+      color: $deepColor;
+      margin-top:rem(9)
+    }
+    .author{
+      font-size:rem(7);
+      color: $redColor;
+    }
+    .cate{
+      font-size:rem(7);
+      color: $deepColor;
+      opacity: 0.8;
+    }
+  }

@@ -7,6 +7,8 @@ import styles from './index.m.scss';
 import classnames from 'classnames/bind';
 const cx = classnames.bind(styles);
 
+
+
 function index(props) {
   const { cover_img,title, sub_title, disc, className} = props;
   return (
