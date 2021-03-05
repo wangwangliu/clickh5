@@ -74,8 +74,8 @@ module.exports = (app, defaultConfig, dev, target) => {
     const plugin = factory.getPlugin('DefinePlugin');
     let flag = false;
 
-    factory.get('output').publicPath = '';
-    factory.get('output').path = path.join(__dirname, '../build/local');
+    factory.get('output').publicPath = './';
+    factory.get('output').path = path.join(__dirname, '../dist');
     const rule = factory.getRule((rule) => {
       if (is.array(rule.alias)) {
         flag = flag || !!rule.alias.filter((item) => {
@@ -113,14 +113,14 @@ module.exports = (app, defaultConfig, dev, target) => {
     });
 
     factory.addPlugin(CleanWebpackPlugin);
-    factory.addPlugin(FileManagerPlugin, {
-      onEnd: {
-        mkdir: ['./zip'],
-        archive: [
-          { source: './build/local', destination: `./zip/${process.env.locale}_Matche_${name || formatTime()}.zip` },
-        ]
-      }
-    });
+    // factory.addPlugin(FileManagerPlugin, {
+    //   onEnd: {
+    //     mkdir: ['./dist'],
+    //     // archive: [
+    //     //   { source: './build/local', destination: `./zip/${process.env.locale}_Matche_${name || formatTime()}.zip` },
+    //     // ]
+    //   }
+    // });
   }
   if (JSON.parse(process.env.npm_config_argv).original.indexOf('dev') === -1) {
     factory.addPlugin(GenerateSW, {
