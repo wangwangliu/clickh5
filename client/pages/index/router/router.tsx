@@ -15,9 +15,11 @@ const { ConnectedRouter } = routerRedux;
 import Home from '../pages/home';
 import Discover from '../pages/discover';
 import Me from '../pages/me';
+import Detail from '../pages/detail';
 import BaseLayout from '../app';
 const Routers = (arg) => {
-  const { history, app: { _store: { dispatch } } } = arg;
+  const { history, browserHistory, app: { _store: { dispatch } } } = arg;
+  console.log(history,arg.app,'browserHistory')
   return (
     <ConnectedRouter history={history}>
       <Switch>
@@ -30,6 +32,7 @@ const Routers = (arg) => {
         <Route path="/me" render={props => <BaseLayout {...props}>
           <Me {...props}/>
         </BaseLayout>} />
+        <Route path="/detail/:id" render={props => <Detail {...props} />}/>
         <Route path="/" render={props => <BaseLayout {...props}>
           <Discover {...props} />
         </BaseLayout>} />

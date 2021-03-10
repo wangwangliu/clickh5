@@ -11,6 +11,10 @@ $active:#f5f5f5;
     @return $px / $ratio + rem;
 }
 
+@function rgba_($c,$o) {
+    @return rgba($color: $c, $alpha:$o);
+}
+
 @function rem($px) {
     @return $px / $ratio + rem;
 }

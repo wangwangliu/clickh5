@@ -7,7 +7,6 @@ import ProdCard from 'client/pages/index/components/ProdCard/index';
 import styles from './index.m.scss';
 
 import classnames from 'classnames/bind';
-import classNames from 'client/pages/index/pages/me/node_modules/classnames/bind';
 const cx = classnames.bind(styles);
 
 function Index(props) {

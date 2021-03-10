@@ -10,16 +10,18 @@ import styles from './index.m.scss';
 import classnames from 'classnames/bind';
 const cx = classnames.bind(styles);
 
+function noop (){}
 
-function index() {
-  const SwpCard = (props) => (
-    <div className={cx('swp_card')}>
-      <div className={cx('img_b')}></div>
-      <div className={cx('tit')}>ertete</div>
-      <div className={cx('author')}>ertet</div>
-      <div className={cx('cate')}>ertert</div>
-    </div>
-  )
+const SwpCard = (props) => (
+<div className={cx('swp_card')} onClick={(props.onClick||noop).bind(this,props)}>
+  <div className={cx('img_b')}></div>
+  <div className={cx('tit')}>ertete</div>
+  <div className={cx('author')}>ertet</div>
+  <div className={cx('cate')}>ertert</div>
+</div>
+)
+
+function index(props) {
   return (
     <div className={cx('discover_wrap')}>
       <Header />
@@ -51,7 +53,10 @@ function index() {
             return <div className={cx('swp_card_w')} key={index}>
               {
                 [1, 2, 3, 4].map((it, idx) => {
-                  return <SwpCard key={idx} />
+                  return <SwpCard onClick={(item,ev) => {
+                    console.log(item,ev, '1223')
+                    props.history.push('/detail/123');
+                  }} key={idx} />
                 })
               }
             </div>
