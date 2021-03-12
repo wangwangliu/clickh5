@@ -5,7 +5,7 @@ module.exports = {
     static: true,
   },
   api: {
-    domain: `https://matche-micro.f1s1.cn/`,
+    domain: `https://api.chestnutreads.com`,
     reportApi: `http://di-logserver-zhangbei-test.qutoutiao.net:8887`,
     cid: 'hctest',
     sign_key: "4ge8u7Tibhi0HOVIjfCvwDk6Tpu2QdGN",

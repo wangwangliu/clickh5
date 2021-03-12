@@ -55,7 +55,7 @@ function index(props) {
                 [1, 2, 3, 4].map((it, idx) => {
                   return <SwpCard onClick={(item,ev) => {
                     console.log(item,ev, '1223')
-                    props.history.push('/detail/123');
+                    props.history.push('/chapter/1');
                   }} key={idx} />
                 })
               }

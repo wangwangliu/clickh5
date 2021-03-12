@@ -1,3 +1,10 @@
+/**
+ * 104041 用户不存在
+    10400  token失效
+    200成功
+ */
+
+
 /* eslint-disable max-len */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-use-before-define */

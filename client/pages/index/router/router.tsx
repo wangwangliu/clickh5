@@ -16,6 +16,7 @@ import Home from '../pages/home';
 import Discover from '../pages/discover';
 import Me from '../pages/me';
 import Detail from '../pages/detail';
+import Chapters from '../pages/chapters';
 import BaseLayout from '../app';
 const Routers = (arg) => {
   const { history, browserHistory, app: { _store: { dispatch } } } = arg;
@@ -32,6 +33,7 @@ const Routers = (arg) => {
         <Route path="/me" render={props => <BaseLayout {...props}>
           <Me {...props}/>
         </BaseLayout>} />
+        <Route path="/chapter/:id" render={props => <Chapters {...props} />}/>
         <Route path="/detail/:id" render={props => <Detail {...props} />}/>
         <Route path="/" render={props => <BaseLayout {...props}>
           <Discover {...props} />
@@ -40,7 +42,7 @@ const Routers = (arg) => {
           <Discover {...props} />
         </BaseLayout>} />
       </Switch>
-    </ConnectedRouter >
+    </ConnectedRouter>
   );
 };
 

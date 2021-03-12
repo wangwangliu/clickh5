@@ -6,7 +6,7 @@ module.exports = {
   },
   api: {
     // ``
-    domain: `https://matche-micro.f1s1.cn/`,
+    domain: `https://api.chestnutreads.com`,
     // domain: `https://micro.hellow.chat/`,
     reportApi: `http://di-logserver-zhangbei-test.qutoutiao.net:8887`,
     cid: 'hctest',

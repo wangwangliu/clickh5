@@ -1,0 +1,163 @@
+@import '../../mixin.scss';
+.me_wrap{
+  position: relative;
+  overflow: auto;
+  height:100vh;
+  width:100vw;
+  .banner_img{
+    width:100vw;
+    height:rem(131);
+    box-sizing: border-box;
+    background:#ccc;
+    transition: transform 0.3s;
+    position: relative;
+    margin-bottom:rem(15);
+    padding-top:rem(37);
+    .tit_{
+      font-size:rem(14);
+      color: $mainBg;
+      font-weight: 600;
+      text-align: center;
+    }
+    .sub_tit_{
+      text-align: center;
+      font-size:rem(8);
+      color: $mainBg;
+      margin-top:2rem;
+      span{
+        color:$deepColor
+      }
+    }
+    .desc_{
+      color:$mainBg;
+      font-size:rem(8);
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+  .me_box{
+    padding:0 px2rem(12);
+    width:100vw;
+    box-sizing: border-box;
+    .chapter_{
+      width:100%;
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      .tit__{
+        color:$deepColor;
+        font-size:rem(14);
+        flex-grow: 1;
+        font-weight: bold;
+      }
+      .pay_all_btn{
+        width: rem(100);
+        height: rem(22);
+        border-radius: rem(30);
+        box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+        // border: solid rem(1) $border;
+        background-color: $redColor;
+        text-align: center;
+        line-height:rem(22);
+        font-size: rem(8);
+        color:$mainBg
+      } 
+    }
+    .list{
+      height: rem(40);
+      padding: rem(10.5) rem(10.3) rem(10.6) rem(10.9);
+      border-radius: rem(8);
+      box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+      border: solid rem(1) $border;
+      background-color: $mainBg;
+      margin-top:rem(10);
+      width:100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      &.first_child{
+        margin-top:rem(15)
+      }
+      &:active{
+        background-color:$active
+      }
+      ._icon{
+        flex-shrink: 0;
+        width:rem(20);
+        height:rem(15);
+        &.code{
+         
+          background:url(#{$path}/code.png) center center no-repeat;
+          background-size: contain;
+        }
+        &.bill{
+        
+          background:url(#{$path}/bill.png) center center no-repeat;
+          background-size: contain;
+        }
+        &.friends{
+        
+          background:url(#{$path}/friends.png) center center no-repeat;
+          background-size: contain;
+        }
+        &.help{
+        
+          background:url(#{$path}/help.png) center center no-repeat;
+          background-size: contain;
+        }
+        &.about{
+          background:url(#{$path}/about.png) center center no-repeat;
+          background-size: contain;
+        }
+        &.logout{
+          background:url(#{$path}/logout.svg) center center no-repeat;
+          background-size: contain;
+        }
+      }
+      .title_{
+        flex-grow: 1;
+        // margin-left:rem(9.5);
+        height:rem(19.5);
+        width:rem(1);
+        // border-left: solid rem(1) $border;
+        // padding-left:rem(9.5);
+        font-size: rem(10);
+        font-weight: 600;
+        color:$deepColor;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .tag{
+        padding:rem(3) rem(13);
+        border-radius: rem(40);
+        box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+        background-color: $redColor;
+        margin-right:rem(16);
+        font-size:rem(8);
+        color:$mainBg;
+        text-align: center;
+        &.block_{
+          background-color: $deepColor;
+          i{
+            width: 0.8rem;  
+            height: 0.8rem;
+            background:url(#{$path}/dollar_white.png) center center no-repeat;
+            background-size: contain;
+            position: relative;
+            display: inline-block;
+            margin-right: 0.1rem;
+          }
+        }
+      }
+      .go_icon{
+        flex-shrink: 0;
+        width:rem(16.2);
+        height:rem(16.2);
+        background:url(#{$path}/right_arrow.png) center center no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}

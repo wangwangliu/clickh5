@@ -43,14 +43,14 @@ function index(props) {
         </div>
 
       </div>
-      <div className={cx('control_wrap')}>
+      {/* <div className={cx('control_wrap')}>
           <div className={cx('title')}>End of this chapter</div>
           <div className={cx('btn_box')}>
               <div className={cx('deep_btn_')}>Previous Chapter</div>
               <div className={cx('red_btn_')}>Next Chapter</div>
           </div>
-        </div>
-      {/* <div className={cx('lock_wrap_')}>
+        </div> */}
+      <div className={cx('lock_wrap_')}>
         <div className={cx('lock_box')} />
         <div className={cx('banner_btn')}>
           <div className={cx('tit_')}>GET MORE COINS</div>
@@ -76,7 +76,7 @@ function index(props) {
               }}
           />
           </div>
-      </div> */}
+      </div>
     </div>
   );
 }
