@@ -56,18 +56,11 @@ class Request {
   }
 
   async send({ path, type = 'get', headers = {}, encrypt }, data = {}) {
-    let appinfo = await ibridge.getAppInfo();
-    // if (!store('appinfo')) {
-    appinfo = { ...appinfo, version: (+appinfo.version) - 10000 };
-    store('appinfo', appinfo);
-    try {
-      delete appinfo.network;
-      delete appinfo.nick_name;
-      delete appinfo.avatar;
-    } catch (error) {
-
-    }
-    // }
+    let appinfo = JSON.parse((store('iitoken')||`{}`));
+    // console.log(store('itoken'),`store('itoken')`)
+    // return 
+    appinfo = { ...appinfo};
+    
     const options = {
       url: path,
       method: type.toLocaleLowerCase(),
@@ -77,25 +70,26 @@ class Request {
     };
     return axios({ ...this.getBaseConfig(), ...options })
       .then((res) => {
-        if (res.data.code == '2006') {
-          try {
-            Toast.hide();
-          } catch (error) {
+        Toast.hide();
+        // if (res.data.code == '2006') {
+        //   try {
+        //     Toast.hide();
+        //   } catch (error) {
 
-          }
-          setTimeout(() => {
-            Toast.fail({
-              content: res.data.detail,
-            });
-          });
-        }
-        if (res.data.code != 200 && res.data && res.data.detail) {
-          setTimeout(() => {
-            Toast.fail({
-              content: res.data.detail,
-            });
-          });
-        }
+        //   }
+        //   setTimeout(() => {
+        //     Toast.fail({
+        //       content: res.data.detail,
+        //     });
+        //   });
+        // }
+        // if (res.data.code != 200 && res.data && res.data.detail) {
+        //   setTimeout(() => {
+        //     Toast.fail({
+        //       content: res.data.detail,
+        //     });
+        //   });
+        // }
         return res.data;
       })
       .catch((err) => {

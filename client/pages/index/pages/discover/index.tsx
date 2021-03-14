@@ -5,6 +5,7 @@ import { request, getLocaleLan } from 'client/utils/index.js';
 import Menu from 'client/pages/index/components/Menu/index';
 import Card from 'client/pages/index/components/Card/index';
 import Header from 'client/components/Header';
+import { routerRedux } from 'dva/router';
 import styles from './index.m.scss';
 
 import classnames from 'classnames/bind';

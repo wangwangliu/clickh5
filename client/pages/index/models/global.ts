@@ -1,25 +1,37 @@
+import { login, register, userInfo } from './server'
+
 export default {
 	namespace: 'global',
 	state: {
 		bottomBar: {
 			show: true,
 			curr: 'discover',
-		
 		},
-		showLoginModal:false,
-		userInfo:{},
-		isLogin:false
+		showLoginModal: false,
+		userInfo: {},
+		isLogin: true
 	},
 	reducers: {
 		updateBar(state, { payload }) {
 			return { ...state, bottomBar: { ...state.bottomBar, ...payload } }
 		},
 		update(state, { payload }) {
-			return { ...state,...payload}
+			return { ...state, ...payload }
 		}
 	},
 	effects: {
-
+		*loginEff({ payload }, { put, select,call }){
+			const res =	yield call(login, payload);
+			return res
+		},
+		*registerEff({ payload }, { put, select,call }){
+			const res =	yield call(register, payload);
+			return res
+		},
+		*userInfoEff({ payload }, { put, select,call }){
+			const res =	yield call(userInfo, payload);
+			return res
+		}
 	},
 	subscriptions: {
 		setup({ dispatch, history }) {

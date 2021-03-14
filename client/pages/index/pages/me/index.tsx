@@ -10,7 +10,7 @@ import classnames from 'classnames/bind';
 const cx = classnames.bind(styles);
 
 
-function index() {
+function index(props) {
   const meRef = useRef();
   const testRef = useRef('test');
   let delta = 0;
@@ -23,12 +23,13 @@ function index() {
     { icon: 'logout', title: 'Logout' },
   ];
   useEffect(() => {
-    // const { current } = meRef
-    // console.log(meRef, 'meRef')
-    // var mc = new Hammer(current);
-    // mc.on("swipeleft", function(ev) {
-    //   console.log(ev,'pan');
-    // });
+    // const {dispatch} = props;
+    // (async ()=>{
+    // const  await dispatch({
+    //     type:'global/userInfoEff'
+    //   })
+
+    // })()
   }, [])
 
   const panHandle = (ev) => {

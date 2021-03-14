@@ -5,7 +5,7 @@ import Header from 'client/components/Header';
 import TouchEl from 'client/components/TouchEl';
 // import Hammer from 'hammerjs';
 import { Switch } from 'antd-mobile';
-import 'antd-mobile/lib/switch/style'
+// import 'antd-mobile/lib/switch/style'
 // import 'antd-mobile/dist/antd-mobile.css';
 import styles from './index.m.scss';
 

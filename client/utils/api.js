@@ -26,7 +26,7 @@ const api = {
   },
 
   /**
-    * 获取用户信息
+    * code兑换钻石
   */
   redemprionCode: {
     path: "/user/v1/user/redemprion-code",
@@ -44,7 +44,7 @@ const api = {
   },
 
   /**
-    * 获取小说信息
+    * 获取每章节信息
   */
   chapterInfo: {
     path: "/user/v1/novel/chapter-info",
