@@ -34,7 +34,7 @@ const Routers = (arg) => {
           <Me {...props}/>
         </BaseLayout>} />
         <Route path="/chapter/:id" render={props => <Chapters {...props} />}/>
-        <Route path="/detail/:id" render={props => <Detail {...props} />}/>
+        <Route path="/detail/:bid/:cid" render={props => <Detail {...props} />}/>
         <Route path="/" render={props => <BaseLayout {...props}>
           <Discover {...props} />
         </BaseLayout>} />

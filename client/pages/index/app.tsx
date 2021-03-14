@@ -89,7 +89,7 @@ function Index(props) {
       }
     }
 
-    loginUserInfo = loginInfo.data;
+    loginUserInfo = get(loginInfo,'data');
 
     if (!loginUserInfo) {
       store('iitoken', loginUserInfo);

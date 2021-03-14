@@ -16,7 +16,7 @@ export default {
     *fetch({ payload }, { put, select,call }){
 			const res =	yield call(bookInfo, payload);
       if(res.code==200){
-        yield put({type:'update',payload:{bookInfo:(get(res,'data.novel_info')||{})}})
+        yield put({type:'update',payload:{bookInfo:(get(res,'data')||{})}})
       }
 			return res;
 		},
