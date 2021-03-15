@@ -56,11 +56,11 @@ class Request {
   }
 
   async send({ path, type = 'get', headers = {}, encrypt }, data = {}) {
-    let appinfo = JSON.parse((store('iitoken')||`{}`));
+    let appinfo = store('iitoken') || {};
     // console.log(store('itoken'),`store('itoken')`)
     // return 
-    appinfo = { ...appinfo};
-    
+    appinfo = { ...appinfo };
+
     const options = {
       url: path,
       method: type.toLocaleLowerCase(),

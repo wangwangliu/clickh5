@@ -31,7 +31,7 @@ function index(props) {
     dispatch({
       type: 'chapters/fetch',
       payload: {
-        book_id: ~(pathname.replace('/chapter/', '') || 0)
+        book_id: ~~(pathname.replace('/chapter/', '') || 0)
       }
     })
   }, [])
@@ -78,12 +78,12 @@ function index(props) {
           {
             !!(get(bookInfo,'chapter_info')||[]).length &&
             get(bookInfo,'chapter_info').map((item, index) => {
-              const { chapter_name, price } = item;
+              const { chapter_name, price, id } = item;
               return <div
                 className={cx('list', index == 0 ? 'first_child' : '')}
                 key={index}
                 onClick={() => {
-                  props.history.push('/detail/1');
+                  props.history.push(`/detail/${id}`);
                 }}
               >
                 <div className={cx('title_')}>{chapter_name}</div>

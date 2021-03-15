@@ -22,6 +22,7 @@ export default {
 	effects: {
 		*loginEff({ payload }, { put, select,call }){
 			const res =	yield call(login, payload);
+			console.log(res,'res===')
 			return res
 		},
 		*registerEff({ payload }, { put, select,call }){

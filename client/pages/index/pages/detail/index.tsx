@@ -12,18 +12,23 @@ const cx = classnames.bind(styles);
 
 function index(props) {
   const [check, setCheck] = useState(false);
-  const { detailInfo: { content_text = '', need_buy, price }, bookInfo , userInfo: { user_coins }, dispatch
+  const { detailInfo: { content_text = '', need_buy, price, next_chapter_id, pre_chapter_id }, bookInfo , userInfo: { user_coins }, dispatch, history
 } = props;
+
+const fetch = () => {
+  const { pathname } = history.location;
+  dispatch({
+    type:'chapterInfo/fetch',
+    payload:{
+      chapter_id:~~(pathname.replace('/detail/', '') || 0)
+    }
+  })
+}
 
 useEffect(() => {
   fetch()
-}, [])
+}, [history.location.pathname])
 
-const fetch = () => {
-  dispatch({
-    type:'chapterInfo/fetch',
-  })
-}
 
 return (
   <div className={cx('detail_wrap')}>
@@ -37,8 +42,16 @@ return (
     {!need_buy && <div className={cx('control_wrap')}>
       <div className={cx('title')}>End of this chapter</div>
       <div className={cx('btn_box')}>
-        <div className={cx('deep_btn_')}>Previous Chapter</div>
-        <div className={cx('red_btn_')}>Next Chapter</div>
+        <div className={cx('deep_btn_')}
+           onClick={()=>{
+            props.history.push(`/detail/${get(pre_chapter_id,'id')}`);
+          }}
+        >Previous Chapter</div>
+        {(get(pre_chapter_id,'id')!=get(next_chapter_id,'id')) && <div className={cx('red_btn_')}
+          onClick={()=>{
+            props.history.push(`/detail/${get(next_chapter_id,'id')}`);
+          }}
+        >Next Chapter</div>}
       </div>
     </div>}
     { !!need_buy &&

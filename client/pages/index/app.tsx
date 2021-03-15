@@ -57,7 +57,7 @@ function Index(props) {
       return
     }
     loginInfo = await dispatch({
-      type: 'global/login',
+      type: 'global/loginEff',
       payload: {
         useremail: emailCurr.value,
         userpass: current.value,
@@ -67,7 +67,7 @@ function Index(props) {
     // 如果用户不存在
     if (get(loginInfo, 'code') == 104041) {
       const registerInfo = await dispatch({
-        type: 'global/register',
+        type: 'global/registerEff',
         payload: {
           useremail: emailCurr.value,
           userpass: current.value,
@@ -77,7 +77,7 @@ function Index(props) {
       // 如果成功
       if (registerInfo.code == 200) {
         loginInfo = await dispatch({
-          type: 'global/login',
+          type: 'global/loginEff',
           payload: {
             useremail: emailCurr.value,
             userpass: current.value,
@@ -91,7 +91,7 @@ function Index(props) {
 
     loginUserInfo = get(loginInfo,'data');
 
-    if (!loginUserInfo) {
+    if (loginUserInfo) {
       store('iitoken', loginUserInfo);
       dispatch({
         type: 'global/update',
