@@ -15,5 +15,5 @@ export function register(prams){
 }
 
 export function userInfo(prams){
-  return request.send(request.api.login, prams)
+  return request.send(request.api.userInfo, prams)
 }

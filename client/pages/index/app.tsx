@@ -16,7 +16,7 @@ function Index(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [is_check, setCheck] = useState(false);
-
+  console.log(userInfo,'userInfo')
   useEffect(() => {
     (async () => {
       // {"code":200,"env":"prod","message":"","data":{"uid":1,"usertype":1,"username":"buhuweishi@163.com","user_coins":3100,"auto_order":1,"time":1615720042}}
@@ -24,12 +24,13 @@ function Index(props) {
       let userInfoRes = await dispatch({
         type: 'global/userInfoEff'
       })
-      userInfoRes = { "code": 200, "env": "prod", "message": "", "data": { "uid": 1, "usertype": 1, "username": "buhuweishi@163.com", "user_coins": 3100, "auto_order": 1, "time": 1615720042 } }
-      if (userInfoRes.code == 200 && !!Object.keys(userInfo).length) {
+      // userInfoRes = { "code": 200, "env": "prod", "message": "", "data": { "uid": 1, "usertype": 1, "username": "buhuweishi@163.com", "user_coins": 3100, "auto_order": 1, "time": 1615720042 } }
+      if (userInfoRes.code == 200 && !Object.keys(userInfo).length) {
         await dispatch({
           type: 'global/update',
           payload: {
-            userInfo: userInfoRes.data
+            userInfo: userInfoRes.data,
+            isLogin:false
           }
         })
       }
@@ -187,6 +188,7 @@ function Index(props) {
             </div>
             <div className={cx('bottom_div', (curr == 'me') ? 'acted' : '')}
               onClick={() => {
+                console.log(isLogin,'isLogin==')
                 if (isLogin) {
                   dispatch({
                     type: 'global/update',
