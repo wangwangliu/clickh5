@@ -10,6 +10,15 @@
     background:#ccc;
     transition: transform 0.3s;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .title_{
+      font-size: rem(16);
+      font-weight: 900;
+      color:$mainBg;
+      width:rem(200)
+    }
     .avatar{
       height:rem(54);
       width:rem(54);
@@ -48,6 +57,7 @@
       border: solid 1px $border;
       background-color: $mainBg;
       box-sizing: border-box;
+      min-height:13rem;
       p{
         line-height: 1.56;
         font-size: 14px;
