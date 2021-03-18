@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const env = {
   prod: {
-    domain: `https://micro.matche.us/`,
+    domain: `https://api.chestnutreads.com`,
     reportApi: `https://logserver-v3.1sapp.com`,
     cid: 'hypechat',
     sign_key: "4ge8u7Tibhi0HOVIjfCvwDk6Tpu2QdGN",
@@ -13,7 +13,7 @@ const env = {
     env: 'prod',
   },
   develop: {
-    domain: `https://matche-micro.f1s1.cn/`,
+    domain: `https://api.chestnutreads.com`,
     reportApi: `http://di-logserver-zhangbei-test.qutoutiao.net:8887`,
     cid: 'hctest',
     sign_key: "4ge8u7Tibhi0HOVIjfCvwDk6Tpu2QdGN",
