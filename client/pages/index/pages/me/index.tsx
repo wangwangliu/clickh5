@@ -35,7 +35,7 @@ function index(props) {
           dispatch({
             type:'global/update',
             payload:{
-              isLogin:true
+              isNeedLogin:true
             }
           })
           Toast.info("Logout success")

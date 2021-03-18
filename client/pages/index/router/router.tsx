@@ -27,6 +27,8 @@ const Routers = (arg) => {
     <ConnectedRouter history={history}>
       <Switch>
         <Route path="/home" render={props => {
+          props.author = 1;
+          console.log(props,arg.app._store.getState(),'arg._store')
           dispatch({
             type: 'global/updateBar',
             payload: {
@@ -50,6 +52,7 @@ const Routers = (arg) => {
           </BaseLayout>
         }} />
         <Route path="/me" render={props => {
+          props.author = 1;
           dispatch({
             type: 'global/updateBar',
             payload: {
@@ -81,6 +84,7 @@ const Routers = (arg) => {
         }
         } />
         <Route path="/cdkey" render={props => {
+          props.author = 1;
           dispatch({
             type: 'global/updateBar',
             payload: {
@@ -91,6 +95,7 @@ const Routers = (arg) => {
         }
         } />
         <Route path="/pay" render={props => {
+          props.author = 1;
           dispatch({
             type: 'global/updateBar',
             payload: {
@@ -101,6 +106,7 @@ const Routers = (arg) => {
         }
         } />
         <Route path="/" render={props => {
+          props.author = 1;
           dispatch({
             type: 'global/updateBar',
             payload: {

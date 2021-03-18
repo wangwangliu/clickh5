@@ -9,7 +9,7 @@ export default {
 		},
 		showLoginModal: false,
 		userInfo: {},
-		isLogin: true
+		isNeedLogin: true
 	},
 	reducers: {
 		updateBar(state, { payload }) {

@@ -14,11 +14,11 @@ const cx = classnames.bind(styles);
 
 
 function Index(props) {
-  const { children, show, curr, showLoginModal, isLogin, dispatch, userInfo } = props;
+  const { children, show, curr, showLoginModal, isNeedLogin, dispatch, userInfo, author } = props;
   const emailRef = useRef();
   const passwordRef = useRef();
   const [is_check, setCheck] = useState(false);
-  console.log(userInfo,'userInfo')
+  // console.log(author,'author===')
   useEffect(() => {
     // (async () => {
     //   let userInfoRes = await dispatch({
@@ -29,7 +29,7 @@ function Index(props) {
     //       type: 'global/update',
     //       payload: {
     //         userInfo: userInfoRes.data,
-    //         isLogin:false
+    //         isNeedLogin:false
     //       }
     //     })
     //   }
@@ -37,7 +37,7 @@ function Index(props) {
     //     await dispatch({
     //       type: 'global/update',
     //       payload: {
-    //         isLogin: true
+    //         isNeedLogin: true
     //       }
     //     })
     //   }
@@ -54,7 +54,7 @@ function Index(props) {
         type: 'global/update',
         payload: {
           userInfo: userInfoRes.data,
-          isLogin:false
+          isNeedLogin:false
         }
       })
     }
@@ -65,9 +65,11 @@ function Index(props) {
       await dispatch({
         type: 'global/update',
         payload: {
-          isLogin: true
+          isNeedLogin: true,
+          showLoginModal:author?true:false
         }
       })
+
     }
   } 
 
@@ -125,7 +127,7 @@ function Index(props) {
         type: 'global/update',
         payload: {
           // userInfo: loginUserInfo,
-          isLogin: false,
+          isNeedLogin: false,
         }
       })
       await getUserInfo();
@@ -148,11 +150,14 @@ function Index(props) {
       <Slide show={showLoginModal} >
         <div className={cx('login_wrap')}>
           <TouchEl onTap={() => {
+            if(!!author){
+              return
+            }
             dispatch({
               type: 'global/update',
               payload: {
                 showLoginModal: false,
-                // isLogin: true
+                // isNeedLogin: true
               }
             })
           }}>
@@ -194,7 +199,7 @@ function Index(props) {
           <div className={cx('bar')}>
             <div className={cx('bottom_div', (curr == 'home') ? 'acted' : '')}
               onClick={() => {
-                if (isLogin) {
+                if (isNeedLogin) {
                   dispatch({
                     type: 'global/update',
                     payload: {
@@ -217,8 +222,8 @@ function Index(props) {
             </div>
             <div className={cx('bottom_div', (curr == 'me') ? 'acted' : '')}
               onClick={() => {
-                console.log(isLogin,'isLogin==')
-                if (isLogin) {
+                console.log(isNeedLogin,'isNeedLogin==')
+                if (isNeedLogin) {
                   dispatch({
                     type: 'global/update',
                     payload: {
@@ -239,13 +244,13 @@ function Index(props) {
     </div>
   );
 }
-const mapStateToProps = ({ global: { bottomBar: { show, curr }, showLoginModal, userInfo, isLogin } }) => {
+const mapStateToProps = ({ global: { bottomBar: { show, curr }, showLoginModal, userInfo, isNeedLogin } }) => {
   return {
     show,
     curr,
     showLoginModal,
     userInfo,
-    isLogin
+    isNeedLogin
   };
 };
 export default connect(mapStateToProps)(Index);
