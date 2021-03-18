@@ -1,0 +1,208 @@
+@import '../../mixin.scss';
+.me_wrap{
+  position: relative;
+  overflow: auto;
+  height:100vh;
+  width:100vw;
+  .banner_img{
+    width:100vw;
+    height:rem(90);
+    background:#ccc;
+    transition: transform 0.3s;
+    position: relative;
+    // margin-bottom:rem(55);
+   
+    .bg_img{
+      width:100vw;
+      height:auto;
+      img{
+        width:100vw;
+        height:auto;
+      }
+    }
+  }
+  .me_box{
+    padding:0 px2rem(12);
+    width:100vw;
+    box-sizing: border-box;
+      .diamond_w{
+        width:100%;
+        height:rem(80);
+        background:$mainBg;
+        padding: rem(13) 1rem rem(9);
+        border-radius: rem(10);
+        box-sizing: border-box;
+        position: relative;
+        top:rem(-15);
+        border-radius: rem(10);
+        box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+        border: solid 1px $border;
+        &::after{
+          content: ' ';
+          position: absolute;
+          left:50%;
+          top:50%;
+          height: rem(40);
+          width:1px;
+          background:$border;
+          transform: translate3d(-50%,-50%,0);
+        }
+        .title{
+          font-size: rem(9);
+          color:$deepColor;
+          text-align: left;
+          margin-top: 0.4rem;
+          font-weight: bold;
+        }
+        .d_w{
+          width:100%;
+          height:rem(36);
+          display: flex;
+          align-items:center;
+          justify-content: space-between;
+          // margin-top:rem(12);
+          .d_coin{
+            height:rem(22.5);
+            width:rem(24.2);
+            background:url(#{$path}/dollar.png) center center no-repeat;
+            background-size: contain;
+            flex-shrink: 0;
+            margin-right:rem(7)
+          }
+          .con{
+            flex-grow: 1;
+            color:$deepColor;
+            font-size: rem(12);
+            font-weight: bold;
+            span{
+              margin-left:rem(5);
+              font-size:rem(8);
+              font-weight: normal;
+            }
+          }
+          .btn{
+            @extend .deep_btn;
+            height: rem(27);
+            line-height: rem(27);
+            flex-shrink: 0;
+            position: relative;
+            top:-0.8rem;
+          }
+        }
+      }
+    .list{
+      height: rem(40);
+      padding: rem(10.5) rem(10.3) rem(10.6) rem(10.9);
+      border-radius: rem(8);
+      box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+      border: solid rem(1) $border;
+      background-color: $mainBg;
+      margin-top:rem(10);
+      width:100%;
+      box-sizing: border-box;
+      display: flex;
+      &.first_child{
+        margin-top:1rem
+      }
+      &:active{
+        // background-color:$active;
+        border:solid rem(1) $redColor;
+        box-shadow: 0 rem(3) rem(6) 0 rgba($color: $redColor, $alpha: 0.1);
+      }
+      &.active{
+        border:solid rem(1) $redColor;
+        box-shadow: 0 rem(3) rem(6) 0 rgba($color: $redColor, $alpha: 0.1);
+      }
+      .diamand_num{
+        width:rem(60);
+        font-size: rem(13);
+        font-weight: bold;
+        color:$deepColor;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .title_{
+        flex-grow: 1;
+        margin-left:rem(9.5);
+        height:rem(19.5);
+        // width:rem(1);
+        border-left: solid rem(1) $border;
+        padding-left:rem(9.5);
+        font-size: rem(10);
+        font-weight: 600;
+        color:$deepColor;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        &::before{
+          content: ' ';
+          position: relative;
+          display: inline-block;
+          height: rem(16);
+          width:rem(16);
+          background:url(#{$path}/dollar_.png) center center no-repeat;
+          background-size: contain;
+          margin-right:rem(7);
+        }
+      }
+      .price{
+        width:6rem;
+        font-size: rem(13);
+        font-weight: bold;
+        color:$redColor;
+        white-space: nowrap;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+  }
+  .btn_wrap{
+    width: 100vw;
+    box-sizing: border-box;
+    padding:0 rem(12);
+    margin-top:rem(20);
+    .title{
+      width:100%;
+      font-size: rem(16);
+      text-align: center;
+      font-weight: bold;
+    }
+    .box_btn{
+      width:100%;
+      margin-top:rem(17);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .btn___{
+        display: inline-block;
+        padding:0 rem(45);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: rem(90);
+        box-shadow: 0 rem(3) rem(6) 0 rgba(94, 98, 100, 0.1);
+        border: solid 1px $border;
+        background-color: $mainBg;
+        box-sizing: border-box;
+        color:$mainBg;
+        font-size: rem(10);
+        font-weight: bold;
+        height:rem(40);
+        .paypay{
+          width:rem(69.3);
+          height:rem(17.7);
+          background:url(#{$path}/paypal.png) center center no-repeat;
+          background-size: contain;
+        }
+        &.card_{
+          box-shadow: 0 rem(3) rem(6) 0 rgba(244, 121, 131, 0.3);
+          background-color: $redColor;
+          border: solid 1px $redColor;
+        }
+      }
+    }
+  }
+}

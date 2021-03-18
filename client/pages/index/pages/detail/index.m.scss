@@ -54,7 +54,7 @@
       width: 100%;
       padding: rem(20);
       border-radius: rem(10);
-      box-shadow: 0 rem(3) rem(6) 0 rgba_($border,0.35);
+      box-shadow: 0 rem(3) rem(6) 0 rgba($color: $border, $alpha: 0.35);
       border: solid 1px $border;
       background-color: $mainBg;
       box-sizing: border-box;
@@ -135,7 +135,7 @@
       padding:rem(10);
       display: flex;
       flex-direction: column;
-      box-shadow: 0 rem(3) rem(6) 0 rgba_($redColor, 0.35);
+      box-shadow: 0 rem(3) rem(6) 0 ($redColor, 0.35);
       .tit_{
         font-size:rem(16);
         // font-weight:bold;

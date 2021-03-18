@@ -72,8 +72,11 @@ function index(props) {
           <div className={cx('lock_box')} />
           <div className={cx('banner_btn')}
             onClick={() => {
+              const { pathname } = history.location;
+              // const redirect = pathname
               if (price > ~~user_coins) {
-                Toast.info('跳转充值')
+                // Toast.info('跳转充值')
+                props.history.push(`/pay?redirect=${pathname}`);
                 return
               }
               // 解锁当节

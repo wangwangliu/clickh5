@@ -1,6 +1,5 @@
-import React, { useReducer, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import dva, { connect } from 'dva';
-import { request, getLocaleLan } from 'client/utils/index.js';
 import Header from 'client/components/Header';
 import TouchEl from 'client/components/TouchEl';
 import get from 'lodash/get';
@@ -8,41 +7,23 @@ import isFunction from 'lodash/isFunction';
 import { Modal, Toast } from 'antd-mobile';
 // import Hammer from 'hammerjs';
 import styles from './index.m.scss';
-import store from 'store2';
 import classnames from 'classnames/bind';
 const cx = classnames.bind(styles);
 
 
 function index(props) {
-
-  const {userInfo, history, dispatch } = props;
+  const [sel,setSel] = useState(1);
+  const { userInfo, history, dispatch } = props;
   const meRef = useRef();
   const testRef = useRef('test');
   let delta = 0;
   const list = [
-    { icon: 'code', title: 'Redemption Code',func:()=>{
-      history.push('/cdkey');
-    } },
-    { icon: 'bill', title: 'Purchased List' },
-    { icon: 'friends', title: 'Invite friends' },
-    { icon: 'help', title: 'Help center' },
-    { icon: 'about', title: 'About us' },
-    { icon: 'logout', title: 'Logout',func:()=>{
-      Modal.alert('Message', 'Are you logout???', [
-        { text: 'Cancel', onPress: () => {console.log('cancel')}, style: 'default' },
-        { text: 'OK', onPress: () => {
-          store.remove('iitoken');
-          dispatch({
-            type:'global/update',
-            payload:{
-              isLogin:true
-            }
-          })
-          Toast.info("Logout success")
-          history.push('/discover');
-        } },
-      ]);
-    } },
+    { id: 1, icon: 'code', title: 'Redemption Code' },
+    { id: 2, icon: 'bill', title: 'Purchased List' },
+    { id: 3, icon: 'friends', title: 'Invite friends' },
+    { id: 4, icon: 'help', title: 'Help center' },
+    { id: 5, icon: 'about', title: 'About us' },
+    { id: 6, icon: 'logout', title: 'Logout' },
   ];
   useEffect(() => {
   }, [])
@@ -87,35 +68,38 @@ function index(props) {
             <div className={cx('title')}>My Wallet</div>
             <div className={cx('d_w')}>
               <div className={cx('d_coin')} />
-              <div className={cx('con')}>{get(userInfo,'user_coins')||0}<span>coins</span></div>
-              <div className={cx('btn')}
-                  onClick={()=>{
-                    history.push('/pay')
-                  }}
-              >GET MORE</div>
+              <div className={cx('con')}>{get(userInfo, 'user_coins') || 0}<span>coins</span></div>
+              <div className={cx('btn')}>Transaction History</div>
             </div>
           </div>
           {
-          list.map((item, index) => {
-            const { title, icon, func } = item;
-            return <div className={cx('list',index==0?'first_child':'')} key={index}
-              onClick={()=>{
-                isFunction(func)&&func()
-              }}
-            >
-              <div className={cx('_icon', icon)} />
-              <div className={cx('title_')}>{title}</div>
-              <div className={cx('go_icon')} />
-            </div>
-          })
-        }
+            list.map((item, index) => {
+              const { title, icon, id } = item;
+              return <div className={cx('list', sel==id?'active':'',index == 0 ? 'first_child' : '')} key={index}
+                onClick={() => {
+                  setSel(id);
+                }}
+              >
+                <div className={cx('diamand_num')}>{60000}</div>
+                <div className={cx('title_')}>{`+Bonus 60`}</div>
+                <div className={cx('price')}>$29.6</div>
+              </div>
+            })
+          }
+        </div>
+        <div className={cx('btn_wrap')}>
+          <div className={cx('title')}>Choose Your Pay Method</div>
+          <div className={cx('box_btn')}>
+            <div className={cx('btn___')}><div className={cx('paypay')}/></div>
+            <div className={cx('btn___','card_')}>Credit Card</div>
+          </div>
         </div>
       </div>
     </TouchEl>
   );
 }
 
-const App = connect(({ global:{userInfo} }) => ({
+const App = connect(({ global: { userInfo } }) => ({
   userInfo,
 }))(index)
 export default App;

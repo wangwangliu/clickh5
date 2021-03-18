@@ -11,6 +11,7 @@ function index(props) {
   return (
     <>
       <div className={cx('top_h')}>
+        <div className={cx('logo')}/>
       </div>
       <div className={cx('placeholder')} />
     </>
