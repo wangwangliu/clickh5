@@ -4,7 +4,7 @@ import { request, getLocaleLan } from 'client/utils/index.js';
 import Header from 'client/components/Header';
 import TouchEl from 'client/components/TouchEl';
 import get from 'lodash/get'
-import { Modal } from 'antd-mobile';
+import { Modal, Toast } from 'antd-mobile';
 // import Hammer from 'hammerjs';
 import styles from './index.m.scss';
 import store from 'store2';
@@ -36,6 +36,7 @@ function index(props) {
               isLogin:true
             }
           })
+          Toast.info("Logout success")
           props.history.push('/discover');
         } },
       ]);
