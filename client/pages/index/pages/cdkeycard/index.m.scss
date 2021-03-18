@@ -1,0 +1,65 @@
+@import '../../mixin.scss';
+.me_wrap{
+  position: relative;
+  overflow: auto;
+  height:100vh;
+  width:100vw;
+  .banner_img{
+    width:100vw;
+    height:rem(131);
+    box-sizing: border-box;
+    background:#ccc;
+    transition: transform 0.3s;
+    position: relative;
+    margin-bottom:rem(15);
+    padding-top:rem(37);
+    .tit_{
+      font-size:rem(14);
+      color: $mainBg;
+      font-weight: 600;
+      text-align: center;
+    }
+    .sub_tit_{
+      text-align: center;
+      font-size:rem(8);
+      color: $mainBg;
+      margin-top:2rem;
+      span{
+        color:$deepColor
+      }
+    }
+    .desc_{
+      color:$mainBg;
+      font-size:rem(8);
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+  .me_box{
+    padding:0 px2rem(12);
+    width:100vw;
+    box-sizing: border-box;
+    .input_key{
+      width:100%;
+      box-sizing:border-box;
+      height:rem(40);
+      padding-left:rem(20);
+      color: $deepColor;
+      margin-top:rem(21);
+      border: solid 1px $border;
+      border-radius: rem(30);
+      box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+    }
+    .btn__{
+      width:rem(160);
+      height:rem(36);
+      line-height:rem(36);
+      text-align: center;
+      border-radius: 90px;
+      box-shadow: 0 3px 6px 0 rgba(244, 121, 131, 0.35);
+      background-color: #f47983;
+      margin:rem(16) auto;
+      color:$mainBg
+    }
+  }
+}

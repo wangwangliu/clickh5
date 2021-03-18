@@ -14,6 +14,8 @@ import axios from 'axios';
 
 import Toast from 'client/components/Toast';
 
+import get from 'lodash/get'
+
 import api from './api';
 
 import store from 'store2';
@@ -71,6 +73,11 @@ class Request {
     return axios({ ...this.getBaseConfig(), ...options })
       .then((res) => {
         Toast.hide();
+        if(res.data.code != 200){
+          Toast.info({
+            content: get(res,'data.message')||'Has some problems',
+          });
+        }
         // if (res.data.code == '2006') {
         //   try {
         //     Toast.hide();

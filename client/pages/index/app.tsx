@@ -18,32 +18,53 @@ function Index(props) {
   const [is_check, setCheck] = useState(false);
   console.log(userInfo,'userInfo')
   useEffect(() => {
-    (async () => {
-      // {"code":200,"env":"prod","message":"","data":{"uid":1,"usertype":1,"username":"buhuweishi@163.com","user_coins":3100,"auto_order":1,"time":1615720042}}
-      // 
-      let userInfoRes = await dispatch({
-        type: 'global/userInfoEff'
-      })
-      // userInfoRes = { "code": 200, "env": "prod", "message": "", "data": { "uid": 1, "usertype": 1, "username": "buhuweishi@163.com", "user_coins": 3100, "auto_order": 1, "time": 1615720042 } }
-      if (userInfoRes.code == 200 && !Object.keys(userInfo).length) {
-        await dispatch({
-          type: 'global/update',
-          payload: {
-            userInfo: userInfoRes.data,
-            isLogin:false
-          }
-        })
-      }
-      if (userInfoRes.code == 10400) {
-        await dispatch({
-          type: 'global/update',
-          payload: {
-            isLogin: true
-          }
-        })
-      }
-    })()
+    // (async () => {
+    //   let userInfoRes = await dispatch({
+    //     type: 'global/userInfoEff'
+    //   })
+    //   if (userInfoRes.code == 200 && !Object.keys(userInfo).length) {
+    //     await dispatch({
+    //       type: 'global/update',
+    //       payload: {
+    //         userInfo: userInfoRes.data,
+    //         isLogin:false
+    //       }
+    //     })
+    //   }
+    //   if (userInfoRes.code == 10400) {
+    //     await dispatch({
+    //       type: 'global/update',
+    //       payload: {
+    //         isLogin: true
+    //       }
+    //     })
+    //   }
+    // })()
+    getUserInfo();
   }, [])
+
+  const getUserInfo = async () => {
+    let userInfoRes = await dispatch({
+      type: 'global/userInfoEff'
+    })
+    if (userInfoRes.code == 200 && !Object.keys(userInfo).length) {
+      await dispatch({
+        type: 'global/update',
+        payload: {
+          userInfo: userInfoRes.data,
+          isLogin:false
+        }
+      })
+    }
+    if (userInfoRes.code == 10400) {
+      await dispatch({
+        type: 'global/update',
+        payload: {
+          isLogin: true
+        }
+      })
+    }
+  } 
 
   //登录操作
   const submitHandle = async () => {
@@ -94,13 +115,15 @@ function Index(props) {
 
     if (loginUserInfo) {
       store('iitoken', loginUserInfo);
+      
       dispatch({
         type: 'global/update',
         payload: {
-          userInfo: loginUserInfo,
+          // userInfo: loginUserInfo,
           isLogin: false,
         }
       })
+      await getUserInfo();
       Toast.info('Login success');
       setTimeout(()=>{
         dispatch({

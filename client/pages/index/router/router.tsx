@@ -17,6 +17,7 @@ import Discover from '../pages/discover';
 import Me from '../pages/me';
 import Detail from '../pages/detail';
 import Chapters from '../pages/chapters';
+import Cdkeycard from '../pages/cdkeycard';
 import BaseLayout from '../app';
 const Routers = (arg) => {
   const { history, browserHistory, app: { _store: { dispatch } } } = arg;
@@ -35,6 +36,8 @@ const Routers = (arg) => {
         </BaseLayout>} />
         <Route path="/chapter/:id" render={props => <Chapters {...props} />}/>
         <Route path="/detail/:id" render={props => <Detail {...props} />}/>
+        <Route path="/cdkey" render={props => <Cdkeycard {...props} />}/>
+        
         <Route path="/" render={props => <BaseLayout {...props}>
           <Discover {...props} />
         </BaseLayout>} />
