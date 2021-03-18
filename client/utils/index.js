@@ -11,6 +11,8 @@ import req from "./request.js";
 import ibridge from './Ibridge';
 import report from './Report';
 
+import { loginSucc } from 'client/utils/globalVar'
+
 // eslint-disable-next-line import/prefer-default-export
 export const request = req;
 
@@ -150,4 +152,22 @@ export function dot(str, len) {
   if (build.length < str.length)
       build += "...";
   return build;
+}
+
+
+
+export function verIsShowLoginModal(prototype, func){
+  const {dispatch} = prototype;
+
+  console.log(loginSucc,'loginSucc')
+  if(!!loginSucc){
+    func.call(prototype)
+    return
+  }
+  dispatch({
+    type:'global/update',
+    payload:{
+      showLoginModal:true
+    }
+  })
 }

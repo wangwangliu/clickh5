@@ -22,30 +22,95 @@ import Pay from '../pages/pay';
 import BaseLayout from '../app';
 const Routers = (arg) => {
   const { history, browserHistory, app: { _store: { dispatch } } } = arg;
-  console.log(history,arg.app,'browserHistory')
+  console.log(history, arg.app, 'browserHistory')
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/home" render={props => <BaseLayout {...props}>
-          <Home {...props} />
-        </BaseLayout>} />
-        <Route path="/discover" render={props => <BaseLayout {...props}>
-          <Discover {...props}/>
-        </BaseLayout>} />
-        <Route path="/me" render={props => <BaseLayout {...props}>
-          <Me {...props}/>
-        </BaseLayout>} />
-        <Route path="/chapter/:id" render={props => <Chapters {...props} />}/>
-        <Route path="/detail/:id" render={props => <Detail {...props} />}/>
-        <Route path="/cdkey" render={props => <Cdkeycard {...props} />}/>
-        <Route path="/pay" render={props => <Pay {...props} />}/>
-        
-        <Route path="/" render={props => <BaseLayout {...props}>
-          <Discover {...props} />
-        </BaseLayout>} />
-        <Route path="/*" render={props => <BaseLayout {...props}>
-          <Discover {...props} />
-        </BaseLayout>} />
+        <Route path="/home" render={props => {
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: true
+            }
+          })
+          return <BaseLayout {...props}>
+            <Home {...props} />
+          </BaseLayout>
+        }}
+        />
+        <Route path="/discover" render={props => {
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: true
+            }
+          })
+          return <BaseLayout {...props}>
+            <Discover {...props} />
+          </BaseLayout>
+        }} />
+        <Route path="/me" render={props => {
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: true
+            }
+          })
+          return <BaseLayout {...props}>
+            <Me {...props} />
+          </BaseLayout>
+        }} />
+        <Route path="/chapter/:id" render={props => {
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: false
+            }
+          })
+          return <BaseLayout {...props}> <Chapters {...props} /></BaseLayout>
+        }} />
+        <Route path="/detail/:id" render={props => {
+          console.log(props)
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: false
+            }
+          })
+          return <BaseLayout {...props}> <Detail {...props} /></BaseLayout>
+        }
+        } />
+        <Route path="/cdkey" render={props => {
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: false
+            }
+          })
+          return <BaseLayout {...props}> <Cdkeycard {...props} /></BaseLayout>
+        }
+        } />
+        <Route path="/pay" render={props => {
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: false
+            }
+          })
+          return <BaseLayout {...props}> <Pay {...props} /></BaseLayout>
+        }
+        } />
+        <Route path="/" render={props => {
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: true
+            }
+          })
+          return <BaseLayout {...props}>
+            <Discover {...props} />
+          </BaseLayout>
+        }} />
       </Switch>
     </ConnectedRouter>
   );

@@ -73,9 +73,9 @@ class Request {
     return axios({ ...this.getBaseConfig(), ...options })
       .then((res) => {
         Toast.hide();
-        if(res.data.code != 200){
+        if (res.data.code != 200 && res.data.code != 10400) {
           Toast.info({
-            content: get(res,'data.message')||'Has some problems',
+            content: get(res, 'data.message') || 'Has some problems',
           });
         }
         // if (res.data.code == '2006') {

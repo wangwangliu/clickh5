@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import dva, { connect } from 'dva';
 import Slide from 'client/components/Draw/slide';
 import TouchEl from 'client/components/TouchEl';
+import { loginFunc } from 'client/utils/globalVar'
 import store from 'store2';
 import get from 'lodash/get';
 import { Toast } from 'antd-mobile';
@@ -10,6 +11,7 @@ import styles from './app.m.scss';
 
 import classnames from 'classnames/bind';
 const cx = classnames.bind(styles);
+
 
 function Index(props) {
   const { children, show, curr, showLoginModal, isLogin, dispatch, userInfo } = props;
@@ -55,6 +57,9 @@ function Index(props) {
           isLogin:false
         }
       })
+    }
+    if(userInfoRes.code == 200){
+      loginFunc(true);
     }
     if (userInfoRes.code == 10400) {
       await dispatch({
@@ -126,12 +131,13 @@ function Index(props) {
       await getUserInfo();
       Toast.info('Login success');
       setTimeout(()=>{
-        dispatch({
-          type: 'global/update',
-          payload: {
-            showLoginModal: false,
-          }
-        })
+        window.location.reload();
+        // dispatch({
+        //   type: 'global/update',
+        //   payload: {
+        //     showLoginModal: false,
+        //   }
+        // })
       },500)
     }
   }

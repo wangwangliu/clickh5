@@ -3,6 +3,7 @@ import dva, { connect } from 'dva';
 import get from 'lodash/get'
 import Header from 'client/components/Header';
 import { Switch, Toast } from 'antd-mobile';
+import { verIsShowLoginModal } from 'client/utils';
 import styles from './index.m.scss';
 
 import classnames from 'classnames/bind';
@@ -42,9 +43,9 @@ function index(props) {
   return (
     <div className={cx('detail_wrap')}>
       <Header />
-      <div className={cx('banner_img')} style={!get(bookInfo,'book_cover')?{}:{
-        backgroundImage:`url(book_cover)`,
-        backgroundSize:'cover'
+      <div className={cx('banner_img')} style={!get(bookInfo, 'book_cover') ? {} : {
+        backgroundImage: `url(book_cover)`,
+        backgroundSize: 'cover'
       }}>
 
         <div className={cx('title_')}>{title}</div>
@@ -73,16 +74,17 @@ function index(props) {
           <div className={cx('banner_btn')}
             onClick={() => {
               const { pathname } = history.location;
-              // const redirect = pathname
-              if (price > ~~user_coins) {
-                // Toast.info('跳转充值')
-                props.history.push(`/pay?redirect=${pathname}`);
-                return
-              }
-              // 解锁当节
-              dispatch({
-                type: 'chapterInfo/chapterOrderEff',
-                payload: {}
+              verIsShowLoginModal(props,()=>{
+                if (price > ~~user_coins) {
+                  // Toast.info('跳转充值')
+                  props.history.push(`/pay?redirect=${pathname}`);
+                  return
+                }
+                // 解锁当节
+                dispatch({
+                  type: 'chapterInfo/chapterOrderEff',
+                  payload: {}
+                })
               })
             }}
           >
@@ -94,10 +96,13 @@ function index(props) {
           </div>
           <div className={cx('lock_all_wap')}
             onClick={() => {
-              // 解锁整本书
-              dispatch({
-                type: 'chapterInfo/bookOrderEff',
+              verIsShowLoginModal(props,()=>{
+                dispatch({
+                  type: 'chapterInfo/bookOrderEff',
+                })
               })
+              // 解锁整本书
+              
             }}
           >
             <div className={cx('lock_all')}>Unlock entire book {get(bookInfo, 'novel_info.price') || 0} coins</div>
