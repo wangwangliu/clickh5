@@ -12,6 +12,10 @@
     width:100vw;
     height:px2rem(131);
     background:#ccc;
+    img{
+      width:100vw;
+      height:px2rem(131);
+    }
   }
   .c_box{
     width:100vw;
@@ -67,10 +71,10 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding:0 rem(10);
+    padding:rem(20) rem(10);
     .swp_card{
       width: rem(83);
-      height: rem(165);
+      height: rem(150);
       padding: rem(5);
       border-radius: rem(8);
       box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
@@ -85,7 +89,10 @@
         border-radius: rem(10);
         box-shadow: 0 rem(5) rem(10) 0 rgba(0, 0, 0, 0.3);
         overflow: hidden;
-        background:#ccc;
+        background:#fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         img{
           width: rem(72);
         }
@@ -93,11 +100,14 @@
       .tit{
         font-size:rem(7);
         color: $deepColor;
-        margin-top:rem(7)
+        margin-top:rem(7);
+        white-space: nowrap;
       }
       .author{
-        font-size:rem(7);
+        font-size:rem(6);
         color: $deepColor;
+        margin-top:0.4rem;
+        white-space: nowrap;
       }
       .cate{
         font-size:rem(7);

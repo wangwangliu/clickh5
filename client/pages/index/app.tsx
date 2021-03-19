@@ -18,7 +18,7 @@ function Index(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [is_check, setCheck] = useState(false);
-  // console.log(author,'author===')
+  console.log(author,'author===')
   useEffect(() => {
     // (async () => {
     //   let userInfoRes = await dispatch({

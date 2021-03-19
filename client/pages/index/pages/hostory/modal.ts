@@ -2,12 +2,11 @@ import { bookInfo } from './server';
 import get from 'lodash/get'
 
 export default {
-	namespace: 'chapters',
+	namespace: 'discover',
 	state: {
-		bookInfo:{}
+		info:{}
 	},
 	reducers: {
-	
 		update(state, { payload }) {
 			return { ...state, ...payload }
 		}

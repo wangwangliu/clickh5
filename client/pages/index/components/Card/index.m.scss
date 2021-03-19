@@ -17,11 +17,14 @@
     border-radius: px2rem(10);
     box-shadow: 0 px2rem(5) px2rem(10) 0 rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    background:#ccc;
+    background:#fff;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
       width: px2rem(74);
-      height: px2rem(105.1);
+      height: auto;
     }
   }
   .right_c{

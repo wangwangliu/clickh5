@@ -106,7 +106,7 @@ const Routers = (arg) => {
         }
         } />
         <Route path="/" render={props => {
-          props.author = 1;
+          // props.author = 1;
           dispatch({
             type: 'global/updateBar',
             payload: {
