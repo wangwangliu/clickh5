@@ -1,0 +1,217 @@
+@import '../../mixin.scss';
+.me_wrap{
+  position: relative;
+  overflow: auto;
+  height:100vh;
+  width:100vw;
+  .banner_img{
+    width:100vw;
+    height:rem(90);
+    background:#ccc;
+    transition: transform 0.3s;
+    position: relative;
+    // margin-bottom:rem(55);
+    .avatar{
+      height:rem(54);
+      width:rem(54);
+      border-radius: rem(4);
+      border:rem(5) solid #fff;
+      position: absolute;
+      z-index:1;
+      bottom:rem(-30);
+      left:50%;
+      margin-left:rem(-27);
+      background:#ccc;
+      box-shadow: 0 0 rem(5) #bbb;
+      img{
+        height:rem(54);
+        width:rem(54);
+      }
+    }
+    .bg_img{
+      width:100vw;
+      height:auto;
+      img{
+        width:100vw;
+        height:auto;
+      }
+    }
+  }
+
+  ._tab_w{
+    width: rem(260);
+    height: rem(32);
+    margin:rem(20) auto;
+    border-radius: rem(90);
+    box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.3);
+    border: solid 1px #dee2e5;
+    background-color: $mainBg;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #062034;
+    .tab{
+      flex:1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #062034;
+      position: relative;
+      z-index:10;
+      font-size:rem(12);
+      transition: color 0.5s;
+      &.color_w{
+        color:$mainBg;
+        // font-weight: bold;
+        transition: color 0.5s;
+      }
+    }
+    .float_bg{
+      width: rem(130);
+      height: rem(32);
+      border-radius: rem(90);
+      background-color: $redColor;
+      position: absolute;
+      z-index:9;
+      left: -1px;
+      top: -1px;
+      border: solid 1px $redColor;
+      &.left_{
+        transform: translateX(0);
+        transition: transform 0.4s;
+      }
+      &.right_{
+        transform: translateX(rem(130));
+        transition: transform 0.4s;
+      }
+      // transition: ;
+    }
+  }
+
+  .me_box{
+    padding:0 px2rem(12);
+    box-sizing: border-box;
+    width:100vw;
+    .diamond_w{
+      width:100%;
+      height:rem(80);
+      background:$lightColor;
+      padding: rem(13) rem(12) rem(9);
+      border-radius: rem(10);
+      box-sizing: border-box;
+      .title{
+        font-size: rem(9);
+        color:$deepColor;
+        text-align: center;
+      }
+      .d_w{
+        width:100%;
+        height:rem(36);
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        margin-top:rem(12);
+        .d_coin{
+          height:rem(22.5);
+          width:rem(24.2);
+          background:url(#{$path}/dollar.png) center center no-repeat;
+          background-size: contain;
+          flex-shrink: 0;
+          margin-right:rem(7)
+        }
+        .con{
+          flex-grow: 1;
+          color:$deepColor;
+          font-size: rem(12);
+          font-weight: bold;
+          span{
+            margin-left:rem(5);
+            font-size:rem(8);
+            font-weight: normal;
+          }
+        }
+        .btn{
+          @extend .deep_btn;
+          height: rem(27);
+          line-height: rem(27);
+          flex-shrink: 0;
+        }
+      }
+    }
+    .list{
+      height: rem(54);
+      padding: rem(10.5) rem(10.3) rem(10.6) rem(10.9);
+      border-radius: rem(8);
+      box-shadow: 0 rem(3) rem(6) 0 rgba(195, 203, 212, 0.35);
+      border: solid rem(1) $border;
+      background-color: $mainBg;
+      margin-top:rem(10);
+      width:100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      &.first_child{
+        margin-top:rem(23)
+      }
+      &:active{
+        background-color:$active
+      }
+      .title_{
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-grow: 1;
+        height:2.2rem;
+        .tit_{
+          font-size: rem(10);
+          font-weight: 600;
+          color:$deepColor;
+          position: relative;
+          display: inline-block;
+          &.__{
+            &::after{
+             content: ' ';
+              width:rem(13);
+              height: rem(15);
+              background:url(#{$path}/dollar_.png) center center no-repeat;
+              background-size: 100% auto;
+              margin-left:rem(5);
+              position: absolute;
+              top: -0.06rem;
+              right: -1.3rem;
+            }
+          } 
+        }
+        .sub_{
+          font-size: rem(9);
+          color:$deepColor;
+          white-space: nowrap;
+          .expire{
+            margin-left:1.5rem;
+          }
+        }
+      }
+      ._icon{
+        flex-shrink: 0;
+        height:rem(16.2);
+        width:3rem;
+        text-align: right;
+        white-space: nowrap;
+      }
+    }
+    ._after_dollar{
+      // content: ' ';
+      width:rem(13);
+      height: rem(15);
+      background:url(#{$path}/dollar_.png) center center no-repeat;
+      background-size: 100% auto;
+      margin-left:rem(5);
+      position: relative;
+      display: inline-block;
+      top:0.12rem;
+    }
+  }
+}

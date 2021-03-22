@@ -4,6 +4,8 @@ import chapterInfo from '../../index/pages/detail/modal';
 import cdkeycard from '../../index/pages/cdkeycard/modal';
 import discover from '../../index/pages/discover/modal';
 import myBook from '../../index/pages/home/modal';
+import history from '../../index/pages/history/modal';
+
 
 export default [
   global,
@@ -11,5 +13,6 @@ export default [
   chapterInfo,
   cdkeycard,
   discover,
-  myBook
+  myBook,
+  history
 ]

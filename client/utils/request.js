@@ -1,6 +1,7 @@
 /**
  * 104041 用户不存在
     10400  token失效
+     10403 返回数据为空
     200成功
  */
 
@@ -73,7 +74,7 @@ class Request {
     return axios({ ...this.getBaseConfig(), ...options })
       .then((res) => {
         Toast.hide();
-        if (res.data.code != 200 && res.data.code != 10400) {
+        if (res.data.code != 200 && res.data.code != 10400 && res.data.code != 10403) {
           Toast.info({
             content: get(res, 'data.message') || 'Has some problems',
           });

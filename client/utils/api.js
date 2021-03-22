@@ -106,7 +106,26 @@ const api = {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
   },
 
+  /**
+   * 用户购买小说付费记录
+  */
+  ordersInfoLog: {
+    path: "/user/v1/user/orders-info",
+    type: "post",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+  },
+
+  /**
+    * 用户购买小说付费记录
+  */
+  purchasesInfoLog: {
+    path: "/user/v1/user/purchases-info",
+    type: "post",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+  },
+
 };
+
 
 
 export default api;

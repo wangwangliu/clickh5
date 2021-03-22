@@ -19,6 +19,7 @@ import Detail from '../pages/detail';
 import Chapters from '../pages/chapters';
 import Cdkeycard from '../pages/cdkeycard';
 import Pay from '../pages/pay';
+import History from '../pages/history';
 import BaseLayout from '../app';
 const Routers = (arg) => {
   const { history, browserHistory, app: { _store: { dispatch } } } = arg;
@@ -92,6 +93,17 @@ const Routers = (arg) => {
             }
           })
           return <BaseLayout {...props}> <Cdkeycard {...props} /></BaseLayout>
+        }
+        } />
+         <Route path="/history/:type?" render={props => {
+          props.author = 1;
+          dispatch({
+            type: 'global/updateBar',
+            payload: {
+              show: false
+            }
+          })
+          return <BaseLayout {...props}> <History {...props} /></BaseLayout>
         }
         } />
         <Route path="/pay" render={props => {

@@ -15,34 +15,44 @@ const cx = classnames.bind(styles);
 
 function index(props) {
 
-  const {userInfo, history, dispatch } = props;
+  const { userInfo, history, dispatch } = props;
   const meRef = useRef();
   const testRef = useRef('test');
   let delta = 0;
   const list = [
-    { icon: 'code', title: 'Redemption Code',func:()=>{
-      history.push('/cdkey');
-    } },
-    { icon: 'bill', title: 'Purchased List' },
+    {
+      icon: 'code', title: 'Redemption Code', func: () => {
+        history.push('/cdkey');
+      }
+    },
+    {
+      icon: 'bill', title: 'Purchased List', func: () => {
+        history.push('/history');
+      }
+    },
     { icon: 'friends', title: 'Invite friends' },
     { icon: 'help', title: 'Help center' },
     { icon: 'about', title: 'About us' },
-    { icon: 'logout', title: 'Logout',func:()=>{
-      Modal.alert('Message', 'Are you logout???', [
-        { text: 'Cancel', onPress: () => {console.log('cancel')}, style: 'default' },
-        { text: 'OK', onPress: () => {
-          store.remove('iitoken');
-          dispatch({
-            type:'global/update',
-            payload:{
-              isNeedLogin:true
+    {
+      icon: 'logout', title: 'Logout', func: () => {
+        Modal.alert('Message', 'Are you logout???', [
+          { text: 'Cancel', onPress: () => { console.log('cancel') }, style: 'default' },
+          {
+            text: 'OK', onPress: () => {
+              store.remove('iitoken');
+              dispatch({
+                type: 'global/update',
+                payload: {
+                  isNeedLogin: true
+                }
+              })
+              Toast.info("Logout success")
+              history.push('/discover');
             }
-          })
-          Toast.info("Logout success")
-          history.push('/discover');
-        } },
-      ]);
-    } },
+          },
+        ]);
+      }
+    },
   ];
   useEffect(() => {
   }, [])
@@ -87,35 +97,35 @@ function index(props) {
             <div className={cx('title')}>My Wallet</div>
             <div className={cx('d_w')}>
               <div className={cx('d_coin')} />
-              <div className={cx('con')}>{get(userInfo,'user_coins')||0}<span>coins</span></div>
+              <div className={cx('con')}>{get(userInfo, 'user_coins') || 0}<span>coins</span></div>
               <div className={cx('btn')}
-                  onClick={()=>{
-                    history.push('/pay')
-                  }}
+                onClick={() => {
+                  history.push('/pay')
+                }}
               >GET MORE</div>
             </div>
           </div>
           {
-          list.map((item, index) => {
-            const { title, icon, func } = item;
-            return <div className={cx('list',index==0?'first_child':'')} key={index}
-              onClick={()=>{
-                isFunction(func)&&func()
-              }}
-            >
-              <div className={cx('_icon', icon)} />
-              <div className={cx('title_')}>{title}</div>
-              <div className={cx('go_icon')} />
-            </div>
-          })
-        }
+            list.map((item, index) => {
+              const { title, icon, func } = item;
+              return <div className={cx('list', index == 0 ? 'first_child' : '')} key={index}
+                onClick={() => {
+                  isFunction(func) && func()
+                }}
+              >
+                <div className={cx('_icon', icon)} />
+                <div className={cx('title_')}>{title}</div>
+                <div className={cx('go_icon')} />
+              </div>
+            })
+          }
         </div>
       </div>
     </TouchEl>
   );
 }
 
-const App = connect(({ global:{userInfo} }) => ({
+const App = connect(({ global: { userInfo } }) => ({
   userInfo,
 }))(index)
 export default App;
