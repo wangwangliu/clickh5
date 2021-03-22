@@ -1,4 +1,8 @@
 @import '../../mixin.scss';
+.swp_card_empty{
+  width: rem(107);
+  height: rem(185);
+  }
   .swp_card{
     width: rem(107);
     height: rem(185);
@@ -10,9 +14,9 @@
     box-sizing: border-box;
     position: relative;
     .recommend_tag{
-      width:rem(70);
+      padding:rem(5) rem(10);
       height:rem(20);
-      background:$deepColor;
+      background:rgba(6,32, 52, 0.8);
       box-sizing: border-box;
       border-top-left-radius: rem(8);
       display: flex;
@@ -31,11 +35,15 @@
       margin: 0 0 rem(6);
       object-fit: contain;
       border-radius: rem(10);
-      box-shadow: 0 rem(5) rem(10) 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 rem(1) rem(5) 0 rgba(70, 70, 70, 0.3);
       overflow: hidden;
-      background:#ccc;
+      background:#fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       img{
         width: rem(93.5);
+        height:auto;
       }
     }
     .tit{

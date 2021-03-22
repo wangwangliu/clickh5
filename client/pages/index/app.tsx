@@ -17,7 +17,7 @@ function Index(props) {
   const { children, show, curr, showLoginModal, isNeedLogin, dispatch, userInfo, author } = props;
   const emailRef = useRef();
   const passwordRef = useRef();
-  const [is_check, setCheck] = useState(false);
+  const [is_check, setCheck] = useState(true);
   console.log(author,'author===')
   useEffect(() => {
     // (async () => {

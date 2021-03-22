@@ -1,5 +1,5 @@
 import request from 'client/utils/request';
 
-export function bookInfo(prams){
-  return request.send(request.api.bookInfo,prams )
+export function userBooks(prams){
+  return request.send(request.api.userBooks,prams )
 }
