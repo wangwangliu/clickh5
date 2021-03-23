@@ -7,6 +7,21 @@
   box-sizing: border-box;
   padding-bottom:px2rem(55);
   // padding-top:px2rem(36);
+
+  .pick_{
+    padding:0 rem(10);
+    .tit__{
+      font-size:rem(18);
+      text-align: center;
+      color:#062034;
+    }
+    .child_{
+      margin-top:rem(13);
+      // &:first-child{
+      //   margin-top:0;
+      // }
+    }
+  }
   
   .banner{
     width:100vw;

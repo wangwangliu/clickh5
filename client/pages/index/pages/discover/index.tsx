@@ -21,8 +21,8 @@ const SwpCard = (props) => (
     <div className={cx('img_b')}>
       <img src={props.cover_img} />
     </div>
-    <div className={cx('tit')}>{dot(props.title,10)}</div>
-    <div className={cx('author')}>{dot(props.sub_title,10)}</div>
+    <div className={cx('tit')}>{dot(props.title, 10)}</div>
+    <div className={cx('author')}>{dot(props.sub_title, 10)}</div>
     {/* <div className={cx('cate')}>ertert</div> */}
   </div>
 )
@@ -34,12 +34,14 @@ function index(props) {
     hotstories,
     spicyreads,
     newtrending,
-    libraryrec,
+    picksforyou,
     history,
-    dispatch
+    dispatch,
+    loading:{effects}
   } = props;
+  // console.log(loading)
   const [topCurr, setTopCurr] = useState({ key: '', showAll: false });
-  console.log(hotstories, 'hotstories')
+  // console.log(hotstories, 'hotstories')
   const [modalList, setModalList] = useState([{
     title: 'Hot Stories',
     title_bg: 'red',
@@ -85,6 +87,10 @@ function index(props) {
   return (
     <div className={cx('discover_wrap')}>
       <Header />
+      {effects['discover/fetch'] && 
+        <div style={{textAlign:'center',marginTop:'3rem'}}>Loading....</div>
+      }
+      {!effects['discover/fetch'] && <>
       {!!banners.length && <div className={cx('banner')}
         onClick={() => {
           window.location.href = banners[0]['url_link'];
@@ -162,7 +168,7 @@ function index(props) {
             }
             {
               !!item.list.length &&
-              <div className={cx('c_box')} style={{marginBottom:(item.loading_num>=item.list.length)?'1rem':'0'}}>
+              <div className={cx('c_box')} style={{ marginBottom: (item.loading_num >= item.list.length) ? '1rem' : '0' }}>
                 {item.list.map((it, idx) => {
                   const { img_url: cover_img, book_id, author_pen_name: sub_title, title, description: disc } = it;
                   if (idx > 3 && idx <= item.loading_num) {
@@ -178,36 +184,55 @@ function index(props) {
                 }
               </div>
             }
-             {(item.loading_num<item.list.length)&&<div className={cx('more_w')}
-              onClick={()=>{
+            {(item.loading_num < item.list.length) && <div className={cx('more_w')}
+              onClick={() => {
                 const deep = cloneDeep(modalList);
-                deep[index].loading_num = deep[index].loading_num+3;
+                deep[index].loading_num = deep[index].loading_num + 3;
                 setModalList(deep);
                 // setModalList([...modalList,...modalList[index]]])
               }}
-             >
+            >
               <div className={cx('more')}>Load More</div>
             </div>}
 
           </>
         })
-        
       }
+      <div className={cx('pick_')}>
+        <div className={cx('tit__')}>Picks for you</div>
+        {picksforyou.map((it, idx) => {
+          const { img_url: cover_img, book_id, author_pen_name: sub_title, title, description: disc } = it;
+          return <Card
+            onClick={(book_id, ev) => {
+              history.push(`/chapter/${book_id}`);
+            }}
+            className={cx('child_')}
+            key={idx}
+            {...{ book_id, cover_img, title, sub_title, disc }} />
+        })
+        }
+      </div>
+      </>}
+    
     </div>
   );
 }
 
-const App = connect(({ discover: { banners,
+const App = connect(({ loading,discover: { banners,
   toplist,
   hotstories,
   spicyreads,
   newtrending,
-  libraryrec } }) => ({
-    banners,
-    toplist,
-    hotstories,
-    spicyreads,
-    newtrending,
-    libraryrec
-  }))(index)
+  libraryrec,
+  picksforyou,
+} }) => ({
+  banners,
+  toplist,
+  hotstories,
+  spicyreads,
+  newtrending,
+  libraryrec,
+  picksforyou,
+  loading
+}))(index)
 export default App;

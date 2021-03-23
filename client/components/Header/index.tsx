@@ -11,7 +11,11 @@ function index(props) {
   return (
     <>
       <div className={cx('top_h')}>
-        <div className={cx('logo')}/>
+        <div className={cx('logo')}
+          onClick={()=>{
+            window.location.href = '/'
+          }}
+        />
       </div>
       <div className={cx('placeholder')} />
     </>

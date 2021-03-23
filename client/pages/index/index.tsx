@@ -2,7 +2,8 @@ import 'babel-polyfill';
 import { ViewProps } from 'beidou';
 import React from 'react';
 import dva from 'dva';
-// import { createBrowserHistory , createMemoryHistory } from 'history';
+import createLoading from 'dva-loading';
+import { createBrowserHistory , createMemoryHistory } from 'history';
 import { memoryHistory, browserHistory } from 'dva/router';
 import router from './router/router';
 import modals from './models';
@@ -13,6 +14,11 @@ function createApp(opts) {
   modals.map((item)=>{
     app.model(item)
   })
+  // if(__CLIENT__){
+  //   console.log(createLoading,'createLoading')
+    app.use(createLoading());
+  // }
+  // 
   app.router(router);
   return app;
 };

@@ -2,6 +2,28 @@
 .swp_card_empty{
   width: rem(107);
   height: rem(185);
+  &.red_bg{
+    background:$redColor;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(195, 203, 212, 0.35);
+    border: solid 1px #dee2e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:$mainBg;
+    flex-direction: column;
+    .plus{
+      width:rem(30);
+      height:rem(30);
+      background:url(#{$path}/plus.png) center center no-repeat;
+      background-size: contain;
+    }
+    .add_text{
+      font-size:rem(10);
+      margin-top:rem(8);
+      text-align: center;
+    }
+  }
   }
   .swp_card{
     width: rem(107);

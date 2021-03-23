@@ -9,7 +9,8 @@ export default {
 		hotstories: [],
 		spicyreads: [],
 		newtrending: [],
-		libraryrec: []
+		libraryrec: [],
+		picksforyou:[]
 	},
 	reducers: {
 		update(state, { payload }) {
@@ -26,6 +27,7 @@ export default {
 				const spicyreads = JSON.parse(get(data,'spicyreads')||"[]");
 				const newtrending = JSON.parse(get(data,'newtrending')||"[]");
 				const libraryrec = JSON.parse(get(data,'libraryrec')||"[]");
+				const picksforyou = JSON.parse(get(data,'picksforyou')||"[]");
 				yield put({
 					type: 'update',
 					payload: {
@@ -34,7 +36,8 @@ export default {
 						hotstories,
 						spicyreads,
 						newtrending,
-						libraryrec
+						libraryrec,
+						picksforyou
 					}
 				})
 			}

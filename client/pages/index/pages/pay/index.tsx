@@ -69,7 +69,11 @@ function index(props) {
             <div className={cx('d_w')}>
               <div className={cx('d_coin')} />
               <div className={cx('con')}>{get(userInfo, 'user_coins') || 0}<span>coins</span></div>
-              <div className={cx('btn')}>Transaction History</div>
+              <div className={cx('btn')}
+                onClick={()=>{
+                  history.push('/history/2')
+                }}
+              >Transaction History</div>
             </div>
           </div>
           {

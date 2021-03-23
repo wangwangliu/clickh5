@@ -31,8 +31,12 @@ function Index(props) {
               className={cx('prd_')}
               key={index}
               onClick={(ii) => {
-                const {id} = ii;
-                history.push(`/chapter/${id}`);
+                const {id,book_id,type} = ii;
+                if(type=='add'){
+                  history.push(`/discover`);
+                  return
+                }
+                history.push(`/chapter/${id||book_id}`);
               }}
               {...item}
             />
