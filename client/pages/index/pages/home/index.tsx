@@ -12,8 +12,7 @@ import classnames from 'classnames/bind';
 const cx = classnames.bind(styles);
 
 function Index(props) {
-  const { books_info, history, dispatch } = props;
-  console.log('books_info', books_info)
+  const { books_info, history, dispatch, banners} = props;
   useEffect(() => {
     dispatch({
       type: 'myBooks/fetch'
@@ -22,7 +21,13 @@ function Index(props) {
   return (
     <div className={cx('home_wrap')}>
       <Header />
-      <div className={cx('banner')}></div>
+      {!!(banners.length) && <div className={cx('banner')}
+        onClick={() => {
+          window.location.href = banners[0]['url_link'];
+        }}
+      >
+        <img src={banners[0]['img_url']} />
+      </div>}
       <div className={cx('lib_box')}>
         {
           !!books_info.length &&
@@ -47,7 +52,8 @@ function Index(props) {
   );
 }
 
-const App = connect(({ myBooks: { books_info } }) => ({
-  books_info
+const App = connect(({ myBooks: { books_info , banners} }) => ({
+  books_info,
+  banners
 }))(Index)
 export default App;

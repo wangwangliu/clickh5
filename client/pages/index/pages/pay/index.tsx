@@ -94,8 +94,16 @@ function index(props) {
         <div className={cx('btn_wrap')}>
           <div className={cx('title')}>Choose Your Pay Method</div>
           <div className={cx('box_btn')}>
-            <div className={cx('btn___')}><div className={cx('paypay')}/></div>
-            <div className={cx('btn___','card_')}>Credit Card</div>
+            <div className={cx('btn___')}
+              onClick={()=>{
+                Toast.info(`Temporarily not opened`)
+              }}
+            ><div className={cx('paypay')}/></div>
+            <div className={cx('btn___','card_')}
+               onClick={()=>{
+                Toast.info(`Temporarily not opened`)
+              }}
+            >Credit Card</div>
           </div>
         </div>
       </div>

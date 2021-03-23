@@ -4,7 +4,8 @@ import get from 'lodash/get'
 export default {
 	namespace: 'myBooks',
 	state: {
-		books_info: []
+		books_info: [],
+		banners:[]
 	},
 	reducers: {
 
@@ -21,7 +22,7 @@ export default {
 
 			if (res1.code == 200) {
 				let libraryrec = JSON.parse((get(res1,'data.libraryrec'))||'[]');
-				
+				const banners = JSON.parse((get(res1,'data.banners'))||'[]');
 				if(!!libraryrec.length){
 					libraryrec = libraryrec.reduce((total,prev)=>{
 						 total.push({...prev,isRecommend:true})
@@ -33,7 +34,7 @@ export default {
 				let books_info_surplus_len = 3 - (((realityList.length) % 3)||3);
 				let	books_info = [...realityList,...Array(books_info_surplus_len).fill({})]
 				
-				yield put({ type: 'update', payload: { books_info } })
+				yield put({ type: 'update', payload: { books_info, banners } })
 			}
 			return res;
 		},
